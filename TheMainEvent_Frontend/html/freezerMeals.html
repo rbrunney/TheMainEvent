@@ -8,14 +8,6 @@
     <title>Freezer Meals</title>
 </head>
 <body>
-    <label for="week_schedule">Week Schedule</label>
-    <select id="week_schedule">
-        <option id="Monday">Monday</option>
-        <option id="Tuesday">Tuesday</option>
-        <option id="Wednesday">Wednesday</option>
-        <option id="Thursday">Thursday</option>
-        <option id="Friday">Friday</option>
-    </select>
 
     <label for="packages_per_week">How many packages would you want per week?</label>
     <select id="packages_per_week">
@@ -25,7 +17,12 @@
         <option id="4">4 per week</option>
         <option id="5">5 per week</option>
     </select>
+    <br><br>
 
+    <form method="post" action="">
+        <input type="checkbox" id="Monday" name="Monday" value="Monday">
+    </form>
+    <br><br>
     <div id="cost">Cost</div>
 
     <div id="meal_pics"></div>
