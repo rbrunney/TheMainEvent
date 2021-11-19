@@ -3,10 +3,28 @@ package com.themainevent.maineventspringapi.Models;
 public class ModelOrder {
 
     private int customerId;
+    private int orderId;
+    private float cost;
     private boolean confirmed;
     private boolean paidDeposit;
     private boolean completedJob;
     private boolean paidInFull;
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
+
+    public float getCost() {
+        return cost;
+    }
+
+    public void setCost(float cost) {
+        this.cost = cost;
+    }
 
     public int getCustomerId() {
         return customerId;
