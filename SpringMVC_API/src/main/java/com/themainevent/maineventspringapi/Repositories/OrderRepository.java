@@ -9,5 +9,4 @@ import java.util.List;
 
 @Repository
 public interface OrderRepository extends MongoRepository<ModelOrder, String>{
-    List<ModelOrder> findAllBy;
 }
