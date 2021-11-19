@@ -1,5 +1,8 @@
 package com.themainevent.maineventspringapi.Models;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "Orders")
 public class ModelOrder {
 
     private int customerId;

@@ -1,7 +1,10 @@
 package com.themainevent.maineventspringapi.Models;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.ArrayList;
 
+@Document(collection = "MenuItems")
 public class ModelMenuItem {
     private ArrayList<ModelIngredient> ingredients;
     private float price;

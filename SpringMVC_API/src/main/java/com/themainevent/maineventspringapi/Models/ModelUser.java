@@ -1,5 +1,8 @@
 package com.themainevent.maineventspringapi.Models;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "Users")
 public class ModelUser {
 
     private String fname, lname, phone, email, customerID, username, password;

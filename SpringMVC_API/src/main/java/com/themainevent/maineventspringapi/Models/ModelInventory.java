@@ -1,10 +1,12 @@
 package com.themainevent.maineventspringapi.Models;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.ui.Model;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+@Document(collection = "Inventory")
 public class ModelInventory {
     private ArrayList<ModelIngredient> ingredients;
     private float costPerServing, qty, minQty;

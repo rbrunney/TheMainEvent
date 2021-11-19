@@ -1,7 +1,10 @@
 package com.themainevent.maineventspringapi.Models;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.ArrayList;
 
+@Document(collection = "OrderDetails")
 public class ModelOrderDetails {
 
     private String dateOfEvent;
