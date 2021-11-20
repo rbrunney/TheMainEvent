@@ -1,0 +1,95 @@
+html, body{
+    margin:0px;
+    height:100%;
+    background: lightgrey; 
+}
+
+#container {
+    text-align: center;
+    margin: 0px;
+    height:100%;
+}
+
+#mainPageBar {
+    height: 5%;
+}
+
+#logoHeader {
+    display: flex;
+    flex-direction: row;
+    height: 25%;
+}
+
+#logo {
+    flex: 2;
+}
+
+#mainHeader {
+    flex: 6;
+}
+
+#topNotes {
+    display: flex;
+    flex-direction: row;
+    height: 70%;
+}
+
+#typeEvents {
+    flex: 1;
+}
+
+#foodPic {
+    flex:1;
+}
+
+#imgOne {
+    height: 100%;
+    width: 100%;
+}
+
+#bottomNotes {
+    display: flex;
+    flex-direction: row;
+    height: 70%;
+}
+
+#foodPic2 {
+    flex: 1;
+}
+
+#imgTwo {
+    height: 100%;
+    width: 100%;
+}
+
+#imgTwo:hover {
+    opacity: 0.5;
+    cursor:pointer;
+}
+
+#notableJobs{
+    flex:1;
+}
+
+#contact {
+    display: flex;
+    flex-direction: row;
+    height: 25%;
+}
+
+#contactInfo {
+    flex: 6;
+}
+
+#contactPicture {
+    flex: 2;
+}
+
+#footer {
+    height: 5%;
+}
+
+.box {
+    border: 1px solid #000;
+}
+
