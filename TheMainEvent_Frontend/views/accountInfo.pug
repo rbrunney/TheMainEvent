@@ -1,0 +1,52 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Account Info
+        link(href='/account.css', rel='stylesheet')
+    body 
+        header
+            h2(id='createProfileHeader') Account Info 
+        br 
+        div(id='container')
+            div(id='box1' class='box')
+            div(id='box2' class='box') 
+                label(for='username' id='username') Username:
+                br
+                input(type='text' id='username')
+                br
+                br
+                label(for='email' id='email') Email:
+                br 
+                input(type='text' id='email')
+                br
+                br
+                label(for='address' id='address') Address: 
+                br
+                input(type='text' id='address')
+                br
+                br
+                button(id='changePassword', onclick='changeVisibility()') Change Password
+                br
+                br
+            div(id='box3', class='box')
+                label(for='password' id='password') Password: 
+                br
+                input(type='password' id='password')
+                br
+                br
+                label(for='newPassword' id='newPassword') New Password:
+                br 
+                input(type='password' id='newPassword')
+                br
+                br
+                label(for='confirmPassword' id='confirmPassword') Confirm Password:
+                br 
+                input(type='password' id='confirmPassword')
+                br
+                br
+        script 
+            include ../scripts/account.js
+                

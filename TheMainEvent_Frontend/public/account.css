@@ -1,0 +1,52 @@
+html{
+    background-color: lightgray;
+}
+
+#createProfileHeader{
+    text-align: center;
+}
+
+#username{
+    max-width: 200px;
+    align-self: center;
+}
+
+#email{
+    max-width: 200px;
+    align-self: center;
+}
+
+#phoneNumber{
+    max-width: 200px;
+    align-self: center;
+}
+
+#address{
+    max-width: 200px;
+    align-self: center;
+}
+
+#changePassword{
+    align-self: center;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+}
+
+#box2 {
+    text-align: center;
+}
+
+#box3{
+    text-align: center;
+}
+
+#changePassword:hover{
+    background-color: lightgreen;
+}
+
+#password{
+    text-align: center;
+}
