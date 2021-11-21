@@ -1,18 +1,34 @@
 package com.themainevent.maineventspringapi.Models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 
-@Document(collection = "OrderDetails")
+@Document(collection = "Order Details")
 public class ModelOrderDetails {
 
+    @Id
+    private String id;
     private String dateOfEvent;
     private String timeOfEvent;
     private String locationOfEvent;
     private int numberOfGuests;
     private float totalCostOfEvent;
-    private ArrayList<ModelMenuItem> menuItems = new ArrayList<ModelMenuItem>();
+    private ArrayList<ModelMenuItem> menuItems;
+
+    public ModelOrderDetails() {
+
+    }
+
+    public ModelOrderDetails(String dateOfEvent, String timeOfEvent, String locationOfEvent, int numberOfGuests, float totalCostOfEvent, ArrayList<ModelMenuItem> menuItems) {
+        this.dateOfEvent = dateOfEvent;
+        this.timeOfEvent = timeOfEvent;
+        this.locationOfEvent = locationOfEvent;
+        this.numberOfGuests = numberOfGuests;
+        this.totalCostOfEvent = totalCostOfEvent;
+        this.menuItems = menuItems;
+    }
 
     public String getDateOfEvent() {
         return dateOfEvent;

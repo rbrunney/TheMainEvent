@@ -42,6 +42,7 @@ public class Security extends WebSecurityConfigurerAdapter  {
                 .antMatchers("/ingredient/**").permitAll()
                 .antMatchers("/inventory/**").permitAll()
                 .antMatchers("/order/**").permitAll()
+                .antMatchers("/orderDetails/**").permitAll()
                 .antMatchers("/user/**").permitAll()
                 //.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
