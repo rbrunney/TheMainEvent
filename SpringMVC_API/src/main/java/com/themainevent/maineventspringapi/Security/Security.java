@@ -40,9 +40,9 @@ public class Security extends WebSecurityConfigurerAdapter  {
 
         http.authorizeRequests()
                 .antMatchers("/ingredient/**").permitAll()
-                .antMatchers("/anyone/api/**").permitAll()
-                .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/inventory/**").permitAll()
+                .antMatchers("/order/**").permitAll()
+                .antMatchers("/user/**").permitAll()
                 //.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .csrf().disable()
