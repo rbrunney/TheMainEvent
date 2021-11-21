@@ -130,12 +130,12 @@ html, body{
 
 .itemImage:hover {
     cursor: pointer;
-    box-shadow: 15px 15px 15px#1b1b1b;
+    box-shadow: 11px 11px 15px#1b1b1b;
 }
 
 .itemImage2:hover {
     cursor: pointer;
-    box-shadow: -15px 15px 15px#1b1b1b;
+    box-shadow: -11px 11px 15px#1b1b1b;
 }
 
 
