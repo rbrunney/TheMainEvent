@@ -16,7 +16,7 @@ public class InventoryController {
 
     @GetMapping(path="/check")
     public String check() {
-        return "Hello from Inventory";
+        return "Hello from Inventory Controller";
     }
 
     @PostMapping(path="/add")
