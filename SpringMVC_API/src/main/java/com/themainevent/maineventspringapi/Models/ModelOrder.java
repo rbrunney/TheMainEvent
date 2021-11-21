@@ -1,10 +1,13 @@
 package com.themainevent.maineventspringapi.Models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Orders")
+@Document(collection="Orders")
 public class ModelOrder {
 
+    @Id
+    private String id;
     private int customerId;
     private int orderId;
     private float cost;
@@ -12,6 +15,16 @@ public class ModelOrder {
     private boolean paidDeposit;
     private boolean completedJob;
     private boolean paidInFull;
+
+    public ModelOrder(int customerId, int orderId, float cost, boolean confirmed, boolean paidDeposit, boolean completedJob, boolean paidInFull) {
+        this.customerId = customerId;
+        this.orderId = orderId;
+        this.cost = cost;
+        this.confirmed = confirmed;
+        this.paidDeposit = paidDeposit;
+        this.completedJob = completedJob;
+        this.paidInFull = paidInFull;
+    }
 
     public int getOrderId() {
         return orderId;

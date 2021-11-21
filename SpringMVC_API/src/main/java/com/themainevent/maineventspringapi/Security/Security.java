@@ -25,12 +25,6 @@ public class Security extends WebSecurityConfigurerAdapter  {
 
         System.out.println("configure - A");
 
-        //
-        /*auth.inMemoryAuthentication().withUser("admin").password(passEncode()
-                .encode("password")).roles("ADMIN");
-//        .and().withUser("USER").password(passEncode().encode("asd")).roles("USER");
-         */
-
         UserDetails newUser = User.withUsername("admin")
                 .password(passEncode().encode("pass"))
                 .roles("ADMIN").build();
@@ -44,14 +38,8 @@ public class Security extends WebSecurityConfigurerAdapter  {
 
         System.out.println("configure - B");
 
-        /* http.authorizeRequests()
-        .anyRequest()
-        .authenticated()
-        .and()
-        .httpBasic();*/
-
         http.authorizeRequests()
-                .antMatchers("/anyone/**").permitAll()
+                .antMatchers("/ingredient/**").permitAll()
                 .antMatchers("/anyone/api/**").permitAll()
                 .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/admin/**").hasRole("ADMIN")

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface OrderRepository extends MongoRepository<ModelOrder, String>, QuerydslPredicateExecutor<ModelOrder> {
+public interface OrderRepository extends MongoRepository<ModelOrder, String>{
     List<ModelOrder> findFirstByOrderId(int id);
 
     //@Query("name" : ?0)
