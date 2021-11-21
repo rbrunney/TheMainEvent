@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Rammetto+One&family=Work+Sans&display=swap');
+
 html, body{
     margin:0px;
     height:100%;
-    background: lightgrey; 
+    background: #fff; 
+    font-family: 'Rammetto One';
 }
 
 #container {
@@ -11,21 +14,75 @@ html, body{
 }
 
 #mainPageBar {
-    height: 5%;
+    display: flex;
+    flex-direction: row;
+    height: 7%;
+}
+
+#logo {
+    flex: 1;
+}
+
+.menuNav {
+    background-color: #141414;
+    overflow: hidden;
+    flex:6;
+}
+
+.menuNav a {
+    float: left;
+    color: #f3f3f3;
+    text-align: center;
+    padding: 1.5%;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.menuNav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.signIn {
+    background-color: #141414;
+    flex: 0.7;
+}
+
+.signIn a{
+    float: right;
+    color: #f3f3f3;
+    text-align: center;
+    padding: 11%;
+    text-decoration: none;
+    font-size: 17px;
 }
 
 #logoHeader {
     display: flex;
     flex-direction: row;
-    height: 25%;
-}
-
-#logo {
-    flex: 2;
+    height: 23%;
 }
 
 #mainHeader {
-    flex: 6;
+    flex: 3;
+}
+
+#leftKnife {
+    text-align: center;
+    flex: 3.5;
+}
+
+#rightKnife {
+    text-align: center;
+    flex: 3.5;
+}
+
+.smallHeadText {
+    font-size: small;
+}
+
+#bigHeadText {
+    font-size: xx-large;
 }
 
 #topNotes {
@@ -38,14 +95,49 @@ html, body{
     flex: 1;
 }
 
-#foodPic {
-    flex:1;
+#foodRows {
+    flex: 1;
 }
 
-#imgOne {
-    height: 100%;
-    width: 100%;
+.foodRow1 {
+    display: flex;
+    flex-direction: row;
+    height: 50%;
 }
+.foodRow2 {
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+}
+
+.foodItem1 {
+    height: 100%;
+    width: 50%
+}
+
+.foodItem2 {
+    height: 100%;
+    width: 50%
+}
+
+.itemImage, .itemImage2 {
+    border: 3px solid #141414;
+    border-radius: 2%;
+    margin: 5%;
+    height: 85%;
+    width: 85%;
+}
+
+.itemImage:hover {
+    cursor: pointer;
+    box-shadow: 15px 15px 15px#1b1b1b;
+}
+
+.itemImage2:hover {
+    cursor: pointer;
+    box-shadow: -15px 15px 15px#1b1b1b;
+}
+
 
 #bottomNotes {
     display: flex;
@@ -90,6 +182,6 @@ html, body{
 }
 
 .box {
-    border: 1px solid #000;
+    border: 1px solid #141414;
 }
 
