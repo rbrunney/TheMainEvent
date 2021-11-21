@@ -16,6 +16,10 @@ public class ModelOrder {
     private boolean completedJob;
     private boolean paidInFull;
 
+    public ModelOrder() {
+
+    }
+
     public ModelOrder(int customerId, int orderId, float cost, boolean confirmed, boolean paidDeposit, boolean completedJob, boolean paidInFull) {
         this.customerId = customerId;
         this.orderId = orderId;

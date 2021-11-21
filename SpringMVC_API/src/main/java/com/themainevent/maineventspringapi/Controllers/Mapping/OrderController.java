@@ -2,10 +2,8 @@ package com.themainevent.maineventspringapi.Controllers.Mapping;
 
 import com.themainevent.maineventspringapi.Controllers.BusinessLogicLayer.BLLOrder;
 import com.themainevent.maineventspringapi.Models.ModelOrder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,35 +11,25 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @RequestMapping(path = "/order")
 public class OrderController {
-//    BLLOrder bllOrder = new BLLOrder();
-//
-//    @PostMapping(path = "/create")
-//    public String createOrder(HttpServletResponse response){
-//        response.addHeader("Access-Control-Allow-Origin", "*");
-//        response.addHeader("Access-Control-Allow-Headers",
-//                "Origin, X-Requested-With, Content-type: application/json, Accept:*");
-//
-//        ModelOrder newOrder = new ModelOrder();
-//        // ----------------------------------------------------
-//        return bllOrder.addOrder(newOrder);
-//    }
-//    @GetMapping(path = "/get")
-//    public ModelOrder getOrder(HttpServletRequest request){
-//        return  bllOrder.getOrder(request.querySelector("id"));
-//    }
-//
-//    @GetMapping(path = "/getOrders")
-//    public ModelOrder[] getOrders() {
-//        return bllOrder.getAllOrders();
-//    }
-//
-//    @GetMapping(path = "/getCompleteOrders")
-//    public ModelOrder[] getCompleteOrders(){
-//        return bllOrder.getCompleteOrders();
-//    }
-//
-//    @GetMapping(path = "/getCurrentOrders")
-//    public ModelOrder[] getCurrentOrders(){
-//        return bllOrder.getAllCurrentOrders();
-//    }
+    @Autowired
+    private BLLOrder bllOrder;
+
+    @GetMapping(path="/check")
+    public String check() {
+        return "Hello from Order";
+    }
+
+    @PostMapping(path="/add")
+    public String add(@RequestBody ModelOrder order) {
+        //testing/Validation Values
+        System.out.println("[ORDER INFO] CustomerID: " + order.getCustomerId());
+        System.out.println("[ORDER INFO] OrderID: " + order.getOrderId());
+        System.out.println("[ORDER INFO] Cost: " + order.getCost());
+        System.out.println("[ORDER INFO] Confirmed: " + order.isConfirmed());
+        System.out.println("[ORDER INFO] Paid Deposit: " + order.isPaidDeposit());
+        System.out.println("[ORDER INFO] Completed Job: " + order.isCompletedJob());
+        System.out.println("[ORDER INFO] Paid In Full: " + order.isPaidInFull());
+
+        return bllOrder.add(order);
+    }
 }

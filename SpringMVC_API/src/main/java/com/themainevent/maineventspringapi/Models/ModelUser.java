@@ -1,11 +1,18 @@
 package com.themainevent.maineventspringapi.Models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Users")
 public class ModelUser {
 
+    @Id
+    private String id;
     private String fname, lname, phone, email, customerID, username, password;
+
+    public ModelUser() {
+
+    }
 
     public ModelUser(String fname, String lname, String phone, String email, String customerID, String username, String password) {
         this.fname = fname;
