@@ -23,7 +23,19 @@ public class BLLIngredient {
         }
     }
 
-//    public List<ModelIngredient> getByFirstName(String name){
-//        return ingredientRepo.findFirstByName(name);
-//    }
+//  //////////////////////////////////////////////
+    //Adding
+    public String Add(ModelIngredient ingredient){
+        try {
+            return ingredientRepo.save(ingredient).getName();
+        }catch (Exception e){
+            System.out.println("*** Add() failed");
+            System.out.println(e.getMessage());
+        }
+        return "couldn't save ingredient";
+    }
+
+    public List<ModelIngredient> getByFirstName(String name){
+        return ingredientRepo.findByName(name);
+    }
 }
