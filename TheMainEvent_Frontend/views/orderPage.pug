@@ -7,25 +7,34 @@ html(lang="en")
         title Order Page
         link(href='/orderPage.css', rel='stylesheet')
     body
-        h2 Order Information 
-        div 
-            h4 Event Type: 
-            input(type='text' name='eventType' placeholder='Type of Event')
-        br
-        div 
-            h4 Date and Time: 
-            input(type='text' name='date' placeholder='Date and Time')
-        br
-        div 
-            h4 Number of People: 
-            input(type='text' name='numOfPeople' placeholder='Number of Guests')
-        br
-        div 
-            h3 Menu Selection 
-            div Menu Item Selection HERE! 
-        br
-        br
-        br
-        div 
-            p Sign in to Schedule Now!! 
+        div(id='container')
+            div(id='mainPageBar') 
+                div(id='logo' class='box') Logo Goes Here
+                div(class='menuNav')
+                    a(href='/') Home
+                    a(href='/order') Book Event
+                    a(href='/account') Account
+                div(class='signIn')
+                    a(href='/') Sign-In
+            h2 Order Information 
+            div 
+                h4 Event Type: 
+                input(type='text' name='eventType' placeholder='Type of Event')
+            br
+            div 
+                h4 Date and Time: 
+                input(type='text' name='date' placeholder='Date and Time')
+            br
+            div 
+                h4 Number of People: 
+                input(type='text' name='numOfPeople' placeholder='Number of Guests')
+            br
+            div 
+                h3 Menu Selection 
+                div Menu Item Selection HERE! 
+            br
+            br
+            br
+            div 
+                p Sign in to Schedule Now!! 
 
