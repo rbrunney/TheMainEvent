@@ -16,4 +16,4 @@ exports.freezerMeals = (req, res) => {
 
 exports.signIn = (req, res) => {
     res.render('signIn')
-}
+};
