@@ -24,15 +24,15 @@ public class BLLInventory {
         }
     }
 
-    //Find By Name
-    public List<ModelInventory> getByFirstName(String name){
-        return inventoryRepo.findByName(name);
+    //Find By Inventory
+    public List<ModelInventory> getByIngredient(ModelInventory ingredients){
+        return inventoryRepo.findByIngredient(ingredients);
     }
 
     //Delete
-    public String Delete(String name){
+    public String Delete(ModelInventory ingredients){
         try {
-            inventoryRepo.deleteByName(name);
+            inventoryRepo.deleteByIngredient(ingredients);
             return "Inventory item has been deleted";
         }catch (Exception e){
             e.printStackTrace();
@@ -41,9 +41,14 @@ public class BLLInventory {
     }
 
     //Update
-    public String updateInventory(String name, String newName){
+    public String updateInventory(ModelInventory oldIngredient, ModelInventory newIngredient){
         try {
-            List<ModelInventory> inventory = inventoryRepo.findByName(name);
+            ModelInventory inventory = inventoryRepo.findFirstByIngredient(oldIngredient);
+            inventory.setIngredient(newIngredient.getIngredient());
+            inventory.setCostPerServing(newIngredient.getCostPerServing());
+            inventory.setMinQty(newIngredient.getMinQty());
+            inventory.setQty(newIngredient.getQty());
+            inventoryRepo.save(inventory);
 
             return "Inventory has been Updated";
         }catch (Exception e){

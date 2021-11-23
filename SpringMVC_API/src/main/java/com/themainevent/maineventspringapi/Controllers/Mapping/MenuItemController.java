@@ -36,9 +36,9 @@ public class MenuItemController {
     @ResponseStatus(code = HttpStatus.OK)
     public String delete(@PathVariable String name){return bllMenuItem.Delete(name);}
 
-    @PutMapping(path = "/update/{oldMenu}/{newMenu}")
+    @PatchMapping(path = "/update/{oldMenu}")
     @ResponseStatus(code = HttpStatus.OK)
-    public String update(@PathVariable String oldMenu, @PathVariable ModelMenuItem newMenu){
+    public String update(@PathVariable String oldMenu, @RequestBody ModelMenuItem newMenu){
         return bllMenuItem.updateMenuItem(oldMenu, newMenu);
     }
 

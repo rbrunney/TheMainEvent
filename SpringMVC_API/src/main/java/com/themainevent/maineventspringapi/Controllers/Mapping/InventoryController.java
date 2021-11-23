@@ -29,19 +29,19 @@ public class InventoryController {
         return bllInventory.addToInventory(inventory);
     }
 
-    @DeleteMapping(path = "/delete/{name}")
+    @DeleteMapping(path = "/delete/{inventory}")
     @ResponseStatus(code = HttpStatus.OK)
-    public String delete(@PathVariable String name){return bllInventory.Delete(name);}
+    public String delete(@PathVariable ModelInventory inventory){return bllInventory.Delete(inventory);}
 
-    @PutMapping(path = "/update/{oldName}/{newName}")
+    @PutMapping(path = "/update/{oldInventory}")
     @ResponseStatus(code = HttpStatus.OK)
-    public String update(@PathVariable String newName, @PathVariable String oldName){
-        return bllInventory.updateInventory(oldName, newName);
+    public String update(@PathVariable ModelInventory oldInventory, @RequestBody ModelInventory newInventory){
+        return bllInventory.updateInventory(oldInventory, newInventory);
     }
 
-    @GetMapping(path = "/search/{name}")
+    @GetMapping(path = "/search/{Inventory}")
     @ResponseStatus(code = HttpStatus.OK)
-    public List<ModelInventory> read(@PathVariable String name) {
-        return bllInventory.getByFirstName(name);
+    public List<ModelInventory> read(@PathVariable ModelInventory Inventory) {
+        return bllInventory.getByIngredient(Inventory);
     }
 }

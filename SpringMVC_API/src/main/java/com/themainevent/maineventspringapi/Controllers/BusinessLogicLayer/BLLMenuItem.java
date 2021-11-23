@@ -49,8 +49,6 @@ public class BLLMenuItem {
             menuItem.setPrice(newMenuItem.getPrice());
             menuItem.setIngredientsCost(newMenuItem.getIngredientsCost());
             menuItemRepo.save(menuItem);
-
-
             return "Menu Item has been Updated";
         }catch (Exception e){
             e.printStackTrace();

@@ -10,7 +10,8 @@ import java.util.List;
 @Repository
 public interface InventoryRepository extends MongoRepository<ModelInventory, String>{
 
-    List<ModelInventory> findByName(String name);
+    List<ModelInventory> findByIngredient(ModelInventory ingredients);
+    ModelInventory findFirstByIngredient(ModelInventory ingredients);
 
-    void deleteByName(String name);
+    void deleteByIngredient(ModelInventory ingredients);
 }
