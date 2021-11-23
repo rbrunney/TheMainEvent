@@ -10,6 +10,7 @@ import java.util.List;
 public interface IngredientRepository extends MongoRepository<ModelIngredient, String>{
 
     List<ModelIngredient> findByName(String name);
+    ModelIngredient findFirstByName(String name);
 
     void deleteByName(String name);
 }
