@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public interface IngredientRepository extends MongoRepository<ModelIngredient, String>{
 
-
     List<ModelIngredient> findByName(String name);
+
+    void deleteByName(String name);
 }

@@ -28,4 +28,11 @@ public class IngredientController {
 
         return bllIngredient.addIngredient(ingredient);
     }
+    @DeleteMapping(path = "/delete/{name}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public String delete(@PathVariable String name){return bllIngredient.Delete(name);}
+
+    @PutMapping(path = "/update/{oldName}/{newName}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public String update(@PathVariable String newName, @PathVariable String oldName){return bllIngredient.updateIngredient(oldName, newName);}
 }

@@ -24,18 +24,33 @@ public class BLLIngredient {
     }
 
 //  //////////////////////////////////////////////
-    //Adding
-    public String Add(ModelIngredient ingredient){
-        try {
-            return ingredientRepo.save(ingredient).getName();
-        }catch (Exception e){
-            System.out.println("*** Add() failed");
-            System.out.println(e.getMessage());
-        }
-        return "couldn't save ingredient";
-    }
-
+    //Find By Name
     public List<ModelIngredient> getByFirstName(String name){
         return ingredientRepo.findByName(name);
     }
+
+    //Delete
+    public String Delete(String name){
+        try {
+            ingredientRepo.deleteByName(name);
+            return "Ingredient has been deleted";
+        }catch (Exception e){
+            e.printStackTrace();
+            return "Ingredient could not be Deleted";
+        }
+    }
+
+    //Update
+    public String updateIngredient(String name, String newName){
+        try {
+            List<ModelIngredient> ingredient = ingredientRepo.findByName(name);
+
+
+            return "Ingredient has been Updated";
+        }catch (Exception e){
+            e.printStackTrace();
+            return "Ingredient could not be Updated";
+        }
+    }
+
 }
