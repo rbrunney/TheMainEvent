@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Rammetto+One&family=Work+Sans&display=swap');
+
+html, body{
+    text-align: center;
+    margin: 0px;
+    height:100%;
+    background-color: lightgray;
+    font-family: 'Rammetto One';
+}
+
+#container {
+    text-align: center;
+    margin: 0px;
+    height:100%;
+}
+
+#mainPageBar {
+    display: flex;
+    flex-direction: row;
+    height: 7%;
+}
+
+#logo {
+    flex: 1;
+}
+
+.menuNav {
+    background-color: #141414;
+    overflow: hidden;
+    flex:6;
+}
+
+.menuNav a {
+    float: left;
+    color: #f3f3f3;
+    text-align: center;
+    padding: 1.5%;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.menuNav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.signIn {
+    background-color: #141414;
+    flex: 0.7;
+}
+
+.signIn a{
+    float: right;
+    color: #f3f3f3;
+    text-align: center;
+    padding: 11%;
+    text-decoration: none;
+    font-size: 17px;
+}
