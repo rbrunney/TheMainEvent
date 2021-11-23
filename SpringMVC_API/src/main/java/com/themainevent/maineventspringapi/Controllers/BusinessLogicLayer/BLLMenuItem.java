@@ -1,6 +1,5 @@
 package com.themainevent.maineventspringapi.Controllers.BusinessLogicLayer;
 
-import com.themainevent.maineventspringapi.Models.ModelIngredient;
 import com.themainevent.maineventspringapi.Models.ModelMenuItem;
 import com.themainevent.maineventspringapi.Repositories.MenuItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
