@@ -24,31 +24,31 @@ public class BLLUser {
         }
     }
 
-    //Find By Name
-    public List<ModelUser> getByFirstName(String name){
-        return userRepo.findByName(name);
-    }
-
-    //Delete
-    public String Delete(String name){
-        try {
-            userRepo.deleteByName(name);
-            return "User has been deleted";
-        }catch (Exception e){
-            e.printStackTrace();
-            return "User could not be Deleted";
-        }
-    }
-
-    //Update
-    public String updateUser(String name, String newName){
-        try {
-            List<ModelUser> user = userRepo.findByName(name);
-
-            return "User has been Updated";
-        }catch (Exception e){
-            e.printStackTrace();
-            return "User could not be Updated";
-        }
-    }
+//    //Find By Name
+//    public List<ModelUser> getByFirstName(String name){
+//        return userRepo.findByName(name);
+//    }
+//
+//    //Delete
+//    public String Delete(String name){
+//        try {
+//            userRepo.deleteByName(name);
+//            return "User has been deleted";
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            return "User could not be Deleted";
+//        }
+//    }
+//
+//    //Update
+//    public String updateUser(String name, String newName){
+//        try {
+//            List<ModelUser> user = userRepo.findByName(name);
+//
+//            return "User has been Updated";
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            return "User could not be Updated";
+//        }
+//    }
 }

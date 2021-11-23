@@ -34,19 +34,19 @@ public class OrderDetailsController {
         return bllOrderDetails.add(orderDetails);
     }
 
-    @DeleteMapping(path = "/delete/{name}")
-    @ResponseStatus(code = HttpStatus.OK)
-    public String delete(@PathVariable String name){return bllOrderDetails.Delete(name);}
-
-    @PutMapping(path = "/update/{oldName}/{newName}")
-    @ResponseStatus(code = HttpStatus.OK)
-    public String update(@PathVariable String newName, @PathVariable String oldName){
-        return bllOrderDetails.updateOrderDetails(oldName, newName);
-    }
-
-    @GetMapping(path = "/search/{name}")
-    @ResponseStatus(code = HttpStatus.OK)
-    public List<ModelOrderDetails> read(@PathVariable String name) {
-        return bllOrderDetails.getByFirstName(name);
-    }
+//    @DeleteMapping(path = "/delete/{name}")
+//    @ResponseStatus(code = HttpStatus.OK)
+//    public String delete(@PathVariable String name){return bllOrderDetails.Delete(name);}
+//
+//    @PutMapping(path = "/update/{oldName}/{newName}")
+//    @ResponseStatus(code = HttpStatus.OK)
+//    public String update(@PathVariable String newName, @PathVariable String oldName){
+//        return bllOrderDetails.updateOrderDetails(oldName, newName);
+//    }
+//
+//    @GetMapping(path = "/search/{name}")
+//    @ResponseStatus(code = HttpStatus.OK)
+//    public List<ModelOrderDetails> read(@PathVariable String name) {
+//        return bllOrderDetails.getByFirstName(name);
+//    }
 }

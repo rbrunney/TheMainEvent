@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface OrderDetailsRepository extends MongoRepository<ModelOrderDetails, String>{
 
-    List<ModelOrderDetails> findByName(String name);
-
-    void deleteByName(String name);
+//    List<ModelOrderDetails> findByName(String name);
+//
+//    void deleteByName(String name);
 }

@@ -23,34 +23,34 @@ public class BLLOrder {
         }
     }
 
-    //Find By Name
-    public List<ModelOrder> getByFirstName(String name){
-        return orderRepo.findByName(name);
-    }
-
-    //Delete
-    public String Delete(String name){
-        try {
-            orderRepo.deleteByName(name);
-            return "Order has been deleted";
-        }catch (Exception e){
-            e.printStackTrace();
-            return "Order could not be Deleted";
-        }
-    }
-
-    //Update
-    public String updateOrder(String name, String newName){
-        try {
-            List<ModelOrder> order = orderRepo.findByName(name);
-
-
-            return "Order has been Updated";
-        }catch (Exception e){
-            e.printStackTrace();
-            return "Order could not be Updated";
-        }
-    }
+//    //Find By Name
+//    public List<ModelOrder> getByFirstName(String name){
+//        return orderRepo.findByName(name);
+//    }
+//
+//    //Delete
+//    public String Delete(String name){
+//        try {
+//            orderRepo.deleteByName(name);
+//            return "Order has been deleted";
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            return "Order could not be Deleted";
+//        }
+//    }
+//
+//    //Update
+//    public String updateOrder(String name, String newName){
+//        try {
+//            List<ModelOrder> order = orderRepo.findByName(name);
+//
+//
+//            return "Order has been Updated";
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            return "Order could not be Updated";
+//        }
+//    }
 
 //    public List<ModelOrder> findById(int id){
 //        return orderRepo.findFirstByOrderId(id);

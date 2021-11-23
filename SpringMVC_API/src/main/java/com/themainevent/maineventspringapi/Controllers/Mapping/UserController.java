@@ -33,19 +33,19 @@ public class UserController {
         return bllUser.addUser(user);
     }
 
-    @DeleteMapping(path = "/delete/{name}")
-    @ResponseStatus(code = HttpStatus.OK)
-    public String delete(@PathVariable String name){return bllUser.Delete(name);}
-
-    @PutMapping(path = "/update/{oldName}/{newName}")
-    @ResponseStatus(code = HttpStatus.OK)
-    public String update(@PathVariable String newName, @PathVariable String oldName){
-        return bllUser.updateUser(oldName, newName);
-    }
-
-    @GetMapping(path = "/search/{name}")
-    @ResponseStatus(code = HttpStatus.OK)
-    public List<ModelUser> read(@PathVariable String name) {
-        return bllUser.getByFirstName(name);
-    }
+//    @DeleteMapping(path = "/delete/{name}")
+//    @ResponseStatus(code = HttpStatus.OK)
+//    public String delete(@PathVariable String name){return bllUser.Delete(name);}
+//
+//    @PutMapping(path = "/update/{oldName}/{newName}")
+//    @ResponseStatus(code = HttpStatus.OK)
+//    public String update(@PathVariable String newName, @PathVariable String oldName){
+//        return bllUser.updateUser(oldName, newName);
+//    }
+//
+//    @GetMapping(path = "/search/{name}")
+//    @ResponseStatus(code = HttpStatus.OK)
+//    public List<ModelUser> read(@PathVariable String name) {
+//        return bllUser.getByFirstName(name);
+//    }
 }

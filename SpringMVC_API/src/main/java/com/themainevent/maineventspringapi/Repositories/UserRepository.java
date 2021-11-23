@@ -10,9 +10,9 @@ import java.util.List;
 @Repository
 public interface UserRepository extends MongoRepository<ModelUser, String> {
 
-    List<ModelUser> findByName(String name);
-    ModelUser findFirstByName(String name);
-
-    void deleteByName(String name);
+//    List<ModelUser> findByName(String name);
+//    ModelUser findFirstByName(String name);
+//
+//    void deleteByName(String name);
 
 }

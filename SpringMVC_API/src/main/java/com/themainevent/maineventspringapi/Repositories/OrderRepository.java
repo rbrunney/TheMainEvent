@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface OrderRepository extends MongoRepository<ModelOrder, String>{
-    List<ModelOrder> findByName(String name);
-
-    void deleteByName(String name);
+//    List<ModelOrder> findByName(String name);
+//
+//    void deleteByName(String name);
 }
