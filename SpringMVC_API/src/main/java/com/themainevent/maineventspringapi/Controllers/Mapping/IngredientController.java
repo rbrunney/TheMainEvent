@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -35,4 +34,8 @@ public class IngredientController {
     @PutMapping(path = "/update/{oldName}/{newName}")
     @ResponseStatus(code = HttpStatus.OK)
     public String update(@PathVariable String newName, @PathVariable String oldName){return bllIngredient.updateIngredient(oldName, newName);}
+
+    @GetMapping(path = "/search/{name}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public List<ModelIngredient> read(@PathVariable String name) {return bllIngredient.getByFirstName(name);}
 }
