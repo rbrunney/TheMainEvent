@@ -41,7 +41,7 @@ public class BLLMenuItem {
     }
 
     //Update
-    public String updateMenuItem(String oldMenuItem, ModelMenuItem newMenuItem){
+    public ModelMenuItem updateMenuItem(String oldMenuItem, ModelMenuItem newMenuItem){
         try {
             ModelMenuItem menuItem = menuItemRepo.findFirstByNameOfDish(oldMenuItem);
             menuItem.setIngredients(newMenuItem.getIngredients());
@@ -49,10 +49,11 @@ public class BLLMenuItem {
             menuItem.setPrice(newMenuItem.getPrice());
             menuItem.setIngredientsCost(newMenuItem.getIngredientsCost());
             menuItemRepo.save(menuItem);
-            return "Menu Item has been Updated";
+            return menuItem;
         }catch (Exception e){
             e.printStackTrace();
-            return "Menu Item could not be Updated";
+            System.out.println(e.getMessage());
         }
+        return null;
     }
 }

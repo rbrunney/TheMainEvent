@@ -30,6 +30,14 @@ public class ModelOrder {
         this.paidInFull = paidInFull;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public int getOrderId() {
         return orderId;
     }

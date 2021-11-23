@@ -1,11 +1,14 @@
 package com.themainevent.maineventspringapi.Models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 
 @Document(collection = "MenuItems")
 public class ModelMenuItem {
+    @Id
+    private String id;
     private ArrayList<ModelIngredient> ingredients;
     private String nameOfDish;
     private float price;
@@ -20,6 +23,14 @@ public class ModelMenuItem {
         this.ingredients = ingredients;
         this.price = price;
         this.ingredientsCost = ingredientsCost;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNameOfDish() {

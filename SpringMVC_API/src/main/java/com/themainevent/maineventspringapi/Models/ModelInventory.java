@@ -1,5 +1,6 @@
 package com.themainevent.maineventspringapi.Models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.aggregation.ArithmeticOperators;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.ui.Model;
@@ -9,6 +10,8 @@ import java.util.ArrayList;
 
 @Document(collection = "Inventory")
 public class ModelInventory {
+    @Id
+    private String id;
     private ModelIngredient ingredient;
     private float costPerServing, qty, minQty;
 
@@ -21,6 +24,14 @@ public class ModelInventory {
         this.costPerServing = costPerServing;
         this.qty = qty;
         this.minQty = minQty;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public ModelIngredient getIngredient() {

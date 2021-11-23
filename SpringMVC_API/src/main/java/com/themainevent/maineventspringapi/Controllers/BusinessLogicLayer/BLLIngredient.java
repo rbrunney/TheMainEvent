@@ -43,9 +43,9 @@ public class BLLIngredient {
     //Update
     public String updateIngredient(String oldIngredient, ModelIngredient newIngredient){
         try {
-            ModelIngredient ingredient = ingredientRepo.findFirstByName(oldIngredient);
-            ingredient.setName(newIngredient.getName());
-            ingredientRepo.save(ingredient);
+            List<ModelIngredient> ingredient = ingredientRepo.findByName(oldIngredient);
+//            ingredient.setName(newIngredient.getName());
+//            ingredientRepo.save(ingredient);
             return "Ingredient has been Updated";
         }catch (Exception e){
             e.printStackTrace();
