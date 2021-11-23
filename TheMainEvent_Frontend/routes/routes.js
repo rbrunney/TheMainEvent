@@ -13,3 +13,7 @@ exports.accountInfo = (req, res) => {
 exports.freezerMeals = (req, res) => {
     res.render('freezerMeals')
 };
+
+exports.signIn = (req, res) => {
+    res.render('signIn')
+}
