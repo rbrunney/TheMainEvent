@@ -27,13 +27,13 @@ public class BLLMenuItem {
 
     //Find By Name
     public List<ModelMenuItem> getByFirstName(String name){
-        return menuItemRepo.findByName(name);
+        return menuItemRepo.findByNameOfDish(name);
     }
 
     //Delete
     public String Delete(String name){
         try {
-            menuItemRepo.deleteByName(name);
+            menuItemRepo.deleteByNameOfDish(name);
             return "Menu Item has been deleted";
         }catch (Exception e){
             e.printStackTrace();
@@ -42,9 +42,14 @@ public class BLLMenuItem {
     }
 
     //Update
-    public String updateMenuItem(String name, String newName){
+    public String updateMenuItem(String oldMenuItem, ModelMenuItem newMenuItem){
         try {
-            List<ModelMenuItem> menuItem = menuItemRepo.findByName(name);
+            ModelMenuItem menuItem = menuItemRepo.findFirstByNameOfDish(oldMenuItem);
+            menuItem.setIngredients(newMenuItem.getIngredients());
+            menuItem.setNameOfDish(newMenuItem.getNameOfDish());
+            menuItem.setPrice(newMenuItem.getPrice());
+            menuItem.setIngredientsCost(newMenuItem.getIngredientsCost());
+            menuItemRepo.save(menuItem);
 
 
             return "Menu Item has been Updated";

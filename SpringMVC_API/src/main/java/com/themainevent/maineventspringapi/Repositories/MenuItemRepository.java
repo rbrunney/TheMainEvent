@@ -10,7 +10,8 @@ import java.util.List;
 @Repository
 public interface MenuItemRepository extends MongoRepository<ModelMenuItem, String>{
 
-    List<ModelMenuItem> findByName(String name);
+    List<ModelMenuItem> findByNameOfDish(String name);
+    ModelMenuItem findFirstByNameOfDish(String name);
 
-    void deleteByName(String name);
+    void deleteByNameOfDish(String name);
 }
