@@ -31,9 +31,9 @@ public class IngredientController {
     @ResponseStatus(code = HttpStatus.OK)
     public String delete(@PathVariable String name){return bllIngredient.Delete(name);}
 
-    @PutMapping(path = "/update/{oldName}/{newName}")
+    @PutMapping(path = "/update/{oldName}")
     @ResponseStatus(code = HttpStatus.OK)
-    public String update(@PathVariable String newName, @PathVariable String oldName){return bllIngredient.updateIngredient(oldName, newName);}
+    public String update(@PathVariable String oldName, @RequestBody ModelIngredient newName){return bllIngredient.updateIngredient(oldName, newName);}
 
     @GetMapping(path = "/search/{name}")
     @ResponseStatus(code = HttpStatus.OK)

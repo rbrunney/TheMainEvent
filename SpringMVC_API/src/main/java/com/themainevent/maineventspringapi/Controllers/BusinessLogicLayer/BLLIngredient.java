@@ -41,11 +41,11 @@ public class BLLIngredient {
     }
 
     //Update
-    public String updateIngredient(String name, String newName){
+    public String updateIngredient(String name, ModelIngredient newName){
         try {
-            List<ModelIngredient> ingredient = ingredientRepo.findByName(name);
-
-
+            ModelIngredient ingredient = ingredientRepo.findFirstByName(name);
+            ingredient.setName(newName.getName());
+            ingredientRepo.save(ingredient);
             return "Ingredient has been Updated";
         }catch (Exception e){
             e.printStackTrace();
