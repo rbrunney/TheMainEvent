@@ -11,7 +11,9 @@ app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.get('/', routes.index);
-app.get('/signIn', routes.signIn)
+app.post('/', routes.index)
+app.get('/signIn', routes.signIn);
+app.get('/createAccount', routes.createAccount);
 app.get('/order', routes.orderPage);
 app.get('/account', routes.accountInfo);
 app.get('/meals', routes.freezerMeals);
