@@ -25,6 +25,18 @@ exports.createAccount = (req, res) => {
     res.render('createAccount');
 };
 
+// Here we need to grab from the database user names and passwords that have a similar name to what was enterd
+// That way we can then allow them to log into the site
+exports.checkAccount = (req, res) => {
+    if ((bcrypt.compareSync(req.body.username, "Check Username") || bcrypt.compareSync(req.body.username, "Check Email")) 
+    && bcrypt.compareSync(req.body.password, "Check Password")) {
+        console.log("User has Logged On")
+        res.redirect('/')
+    } else {
+        res.redirect('/signIn')
+    }
+};
+
 exports.addAccount = (req, res) => {
     if(req.body.password === req.body.confirmPassword) {
         let user = {
@@ -37,15 +49,12 @@ exports.addAccount = (req, res) => {
         }
         // Need to call REST API here so we can add their information to the Database
         const request = new XMLHttpRequest();
-        request.open("POST", "localhost:8082/user/add");
+        request.open("POST", "http://localhost:8082/user/add");
         request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         request.send(JSON.stringify(user));
-        request.onload = () => {
-            alert("[INFO] " + request.responseText);
-        }
         res.redirect('/');
     } else {
         res.redirect('/createAccount');
     }
 
-}
+};
