@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 exports.index = (req, res) => {
     res.render('index')
@@ -36,13 +37,12 @@ exports.addAccount = (req, res) => {
         }
         // Need to call REST API here so we can add their information to the Database
         const request = new XMLHttpRequest();
-        request.open('POST', 'localhost:8082/user/add');
+        request.open("POST", "localhost:8082/user/add");
         request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         request.send(JSON.stringify(user));
         request.onload = () => {
-            alert("[INFO] " + request.responseText)
+            alert("[INFO] " + request.responseText);
         }
-    
         res.redirect('/');
     } else {
         res.redirect('/createAccount');
