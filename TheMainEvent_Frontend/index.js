@@ -10,10 +10,15 @@ app.set('views', __dirname + '/views');
 
 app.use(express.static(path.join(__dirname, '/public')));
 
+const urlencoderParser = express.urlencoded({
+    extended: false
+});
+
 app.get('/', routes.index);
 app.post('/', routes.index)
 app.get('/signIn', routes.signIn);
 app.get('/createAccount', routes.createAccount);
+app.post('/addAccount', urlencoderParser, routes.addAccount);
 app.get('/order', routes.orderPage);
 app.get('/account', routes.accountInfo);
 app.get('/meals', routes.freezerMeals);
