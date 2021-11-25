@@ -14,8 +14,8 @@ public interface IngredientRepository extends MongoRepository<ModelIngredient, S
 
     void deleteByName(String name);
 
-    Optional<ModelIngredient> findById(String id);
+    Optional<ModelIngredient> findBy_id(String id);
 
-    List<ModelIngredient> findByIdAndName(String id, String name);
+    List<ModelIngredient> findBy_idAndName(String id, String name);
 
 }
