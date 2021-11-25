@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ModelOrder {
 
     @Id
-    private String id;
+    private String _id;
     private int customerId;
     private int orderId;
     private float cost;
@@ -30,12 +30,12 @@ public class ModelOrder {
         this.paidInFull = paidInFull;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public int getOrderId() {

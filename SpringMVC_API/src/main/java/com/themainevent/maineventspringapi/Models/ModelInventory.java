@@ -1,17 +1,12 @@
 package com.themainevent.maineventspringapi.Models;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.aggregation.ArithmeticOperators;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.ui.Model;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 @Document(collection = "Inventory")
 public class ModelInventory {
     @Id
-    private String id;
+    private String _id;
     private ModelIngredient ingredient;
     private float costPerServing, qty, minQty;
 
@@ -26,12 +21,12 @@ public class ModelInventory {
         this.minQty = minQty;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public ModelIngredient getIngredient() {

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 @Document(collection = "MenuItems")
 public class ModelMenuItem {
     @Id
-    private String id;
+    private String _id;
     private ArrayList<ModelIngredient> ingredients;
     private String nameOfDish;
     private float price;
@@ -25,12 +25,12 @@ public class ModelMenuItem {
         this.ingredientsCost = ingredientsCost;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getNameOfDish() {

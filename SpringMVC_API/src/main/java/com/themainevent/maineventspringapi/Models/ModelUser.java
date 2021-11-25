@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ModelUser {
 
     @Id
-    private String id;
+    private String _id;
     private String fname, lname, phone, email, customerID, username, password;
 
     public ModelUser() {
@@ -24,12 +24,12 @@ public class ModelUser {
         this.password = password;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getFname() {
