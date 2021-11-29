@@ -15,9 +15,10 @@ const urlencoderParser = express.urlencoded({
 });
 
 app.get('/', routes.index);
-app.post('/', routes.index)
+app.post('/', routes.index);
+app.get('/adminDesign', routes.admin);
 app.get('/signIn', routes.signIn);
-app.post('/checkAccount', urlencoderParser, routes.checkAccount)
+app.post('/checkAccount', urlencoderParser, routes.checkAccount);
 app.get('/createAccount', routes.createAccount);
 app.post('/addAccount', urlencoderParser, routes.addAccount);
 app.get('/order', routes.orderPage);
