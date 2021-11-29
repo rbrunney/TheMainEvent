@@ -35,15 +35,13 @@ exports.checkAccount = (req, res) => {
     const request = new XMLHttpRequest();
     request.open("GET", `http://localhost:8082/user/checkUser/${req.body.username}`);
     request.send();
-    request.onload() = {
-
-    }
-
-    if ((bcrypt.compareSync(req.body.username, "Check Email")) && bcrypt.compareSync(req.body.password, "Check Password")) {
-        console.log("User has Logged On")
-        res.redirect('/')
-    } else {
-        res.redirect('/signIn')
+    request.onload = () => {
+        if (bcrypt.compareSync(req.body.password, request.responseText)) {
+            console.log("User has Logged On")
+            res.redirect('/')
+        } else {
+            res.redirect('/signIn')
+        }
     }
 };
 
