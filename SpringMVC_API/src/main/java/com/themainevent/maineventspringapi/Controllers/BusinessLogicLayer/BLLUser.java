@@ -18,8 +18,12 @@ public class BLLUser {
 
     public String addUser(ModelUser user) {
         try {
-            if(!userRepo.findByUsername(user.getUsername()).getUsername().equals(user.getUsername())) {
-                throw new Exception();
+            try {
+                if(userRepo.findByUsername(user.getUsername()).getUsername().equals(user.getUsername())) {
+                    throw new Exception();
+                }
+            } catch(NullPointerException npe) {
+                System.out.println("New User is getting created");
             }
             userRepo.save(user);
             return "User has been added";
