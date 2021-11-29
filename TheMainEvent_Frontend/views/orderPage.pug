@@ -23,7 +23,14 @@ html(lang="en")
             br
             div 
                 h4 Date and Time: 
-                input(type='text' name='date' placeholder='Date and Time')
+                script(src='https://jsuites.net/v4/jsuites.js')
+                link(rel='stylesheet' href='https://jsuites.net/v4/jsuites.css' type='text/css')
+                input#calendar
+                script.
+                    jSuites.calendar(document.getElementById('calendar'), {
+                    time:true,
+                    format:'DD/MM/YYYY HH24:MI',
+                    });
             br
             div 
                 h4 Number of People: 
