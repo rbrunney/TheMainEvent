@@ -2,8 +2,12 @@ const bcrypt = require('bcryptjs');
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 exports.index = (req, res) => {
-    res.render('index')
+    res.render('index');
 };
+
+exports.admin = (req, res) => {
+    res.render('adminDesign');
+}
 
 exports.orderPage = (req, res) => {
     res.render('orderPage');
