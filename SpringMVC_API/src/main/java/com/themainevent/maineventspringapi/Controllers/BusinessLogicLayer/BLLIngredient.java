@@ -29,13 +29,24 @@ public class BLLIngredient {
         System.out.println("-------------------------------");
         for (ModelIngredient ingredient : ingredientRepo.findAll()){
             System.out.println(ingredient);
+
         }
     }
 
 //  //////////////////////////////////////////////
     //Find By ID
     public Optional<ModelIngredient> getById(String id){
-        return ingredientRepo.findById(id);
+        return ingredientRepo.findBy_id(id);
+    }
+
+    //Find By Name
+    public List<ModelIngredient> getByName(String name){
+
+        List<ModelIngredient> foundNames= ingredientRepo.findAllByName(name);
+        for (ModelIngredient ingredient : foundNames) {
+            System.out.println(ingredient);
+        }
+        return foundNames;
     }
 
     //Delete
@@ -52,9 +63,11 @@ public class BLLIngredient {
     //Update
     public String updateIngredient(ModelIngredient oldIngredient, ModelIngredient newIngredient){
         try {
-//            List<ModelIngredient> ingredient = ingredientRepo.findByIdAndName(oldIngredient.getId(), ingredientRepo.findByName(oldIngredient.getName()));
-//            ingredient.setName(newIngredient.getName());
-//            ingredientRepo.save(ingredient);
+            Optional<ModelIngredient> ingredient = ingredientRepo.findBy_id(oldIngredient.get_id());
+            if (ingredient.isPresent()){
+                ingredient.get().setName(newIngredient.getName());
+            }
+            ingredientRepo.save(newIngredient);
             return "Ingredient has been Updated";
         }catch (Exception e){
             e.printStackTrace();

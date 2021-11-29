@@ -10,7 +10,8 @@ import java.util.Optional;
 @Repository
 public interface IngredientRepository extends MongoRepository<ModelIngredient, String>{
 
-    List<ModelIngredient> findByName(String name);
+    List<ModelIngredient> findAllByName(String name);
+    String findByName(String name);
 
     void deleteByName(String name);
 
