@@ -18,7 +18,7 @@ public class BLLUser {
 
     public String addUser(ModelUser user) {
         try {
-            if(userRepo.findByUsername(user.getUsername()).equals(user.getUsername())) {
+            if(!userRepo.findByUsername(user.getUsername()).getUsername().equals(user.getUsername())) {
                 throw new Exception();
             }
             userRepo.save(user);
