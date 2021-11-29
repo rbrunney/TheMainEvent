@@ -44,7 +44,7 @@ exports.addAccount = (req, res) => {
             lname: req.body.lname,
             email: bcrypt.hashSync(req.body.email, bcrypt.genSaltSync(10)),
             phone: bcrypt.hashSync(req.body.phone, bcrypt.genSaltSync(10)),
-            username: bcrypt.hashSync(req.body.username, bcrypt.genSaltSync(10)),
+            username: req.body.username,
             password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)),
         }
         // Need to call REST API here so we can add their information to the Database
