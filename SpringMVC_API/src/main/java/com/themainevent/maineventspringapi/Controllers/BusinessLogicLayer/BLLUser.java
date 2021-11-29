@@ -18,19 +18,17 @@ public class BLLUser {
 
     public String addUser(ModelUser user) {
         try {
-            try {
-                if(userRepo.findByUsername(user.getUsername()).getUsername().equals(user.getUsername())) {
-                    throw new Exception();
-                }
-            } catch(NullPointerException npe) {
-                System.out.println("New User is getting created");
+            if(userRepo.findByUsername(user.getUsername()).getUsername().equals(user.getUsername())) {
+                throw new Exception();
             }
+        } catch(NullPointerException npe) {
             userRepo.save(user);
             return "User has been added";
         } catch(Exception e) {
-            e.printStackTrace();
             return "User could not be saved";
         }
+
+        return "User could not be saved";
     }
 
     public String checkUsers(String username) {
