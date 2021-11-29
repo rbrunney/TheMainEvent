@@ -33,6 +33,11 @@ public class UserController {
         return bllUser.addUser(user);
     }
 
+    @GetMapping(path="/checkUser/{username}")
+    public String checkUsers(@PathVariable String username) {
+        return bllUser.checkUsers(username);
+    }
+
 //    @DeleteMapping(path = "/delete/{name}")
 //    @ResponseStatus(code = HttpStatus.OK)
 //    public String delete(@PathVariable String name){return bllUser.Delete(name);}

@@ -1,3 +1,4 @@
+
 package com.themainevent.maineventspringapi.Controllers.BusinessLogicLayer;
 
 import com.themainevent.maineventspringapi.Models.ModelMenuItem;
@@ -6,6 +7,7 @@ import com.themainevent.maineventspringapi.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,11 +18,23 @@ public class BLLUser {
 
     public String addUser(ModelUser user) {
         try {
+            if(userRepo.findByUsername(user.getUsername()).equals(user.getUsername())) {
+                throw new Exception();
+            }
             userRepo.save(user);
             return "User has been added";
         } catch(Exception e) {
             e.printStackTrace();
             return "User could not be saved";
+        }
+    }
+
+    public String checkUsers(String username) {
+        try {
+            return userRepo.findByUsername(username).getPassword();
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "Failed";
         }
     }
 
