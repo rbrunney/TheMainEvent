@@ -22,6 +22,7 @@ app.use(expressSession({
 const checkAuthAccount = (req, res, next) => {
     if(req.session.user && req.session.user.isAuthenticated) {
         res.clearCookie('path');
+        console.log("This is yee right here");
         next();
     } else {
         res.cookie('path', '/account', {maxAge:60000});

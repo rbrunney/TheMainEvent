@@ -8,18 +8,22 @@ html(lang="en")
         link(href='/signIn.css', rel='stylesheet')
     body 
         //- Logo goes here
-        header(id='signInHeader') 
-            h1 Sign-In 
-        br
-        form(id='signInForm' action='/checkAccount' method='post')
-            input(type='text' name='username' placeholder='Username or Email', required)
-            br
-            br
-            input(type='text' name='password' placeholder='Password' required)
-            br 
-            br 
-            input(type='submit' value='Sign In')
-            br 
-            br
-        br
-        a(id='createAccountLink' href='/createAccount') Create Account
+        fieldset
+            legend Sign-In
+            div(id='signInFormContainer')
+                header(id='signInHeader') 
+                    h1 Sign-In 
+                br
+                form(id='signInForm' action='/checkAccount' method='post')
+                    input(type='text' name='username' placeholder='Username or Email', required)
+                    br
+                    br
+                    input(type='text' name='password' placeholder='Password' required)
+                    br 
+                    br 
+                    input(type='submit' value='Sign In')
+                    br 
+                    br
+                br
+                div(id='createAccountLink')
+                    a(href='/createAccount') Create Account
