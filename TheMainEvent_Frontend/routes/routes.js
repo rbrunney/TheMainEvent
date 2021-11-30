@@ -74,6 +74,17 @@ exports.addAccount = (req, res) => {
 
 //STILL WORKING ON IT
 exports.addOrder = (req, res) => {
+    let orderDetails = {
+        typeOfEvent: req.body.typeOfEvent,
+        dateOfEvent: req.body.date,
+        locationOfEvent: req.body.location,
+        numberOfGuests: req.body.numOfPeople,
+        totalCostOfEvent: req.body.cost,
+        menuItems: req.body.menu
+    }
     const request = new XMLHttpRequest();
-    request.open("POST", "")
+    request.open("POST", "http://localhost:8082/orderDetails/add")
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    request.send(JSON.stringify(orderDetails));
+    res.redirect('/');
 }
