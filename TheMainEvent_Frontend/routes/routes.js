@@ -64,5 +64,10 @@ exports.addAccount = (req, res) => {
     } else {
         res.redirect('/createAccount');
     }
-
 };
+
+//STILL WORKING ON IT
+exports.addOrder = (req, res) => {
+    const request = new XMLHttpRequest();
+    request.open("POST", "")
+}

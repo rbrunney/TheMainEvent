@@ -57,3 +57,113 @@ html, body{
     text-decoration: none;
     font-size: 17px;
 }
+
+
+
+/* GENERAL STYLES */
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+}
+
+@keyframes fadein {
+    from { 
+        opacity: 0; 
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    font-family: Verdana, Geneva, sans-serif;
+    margin: 16px auto;
+    max-width: 1024px;
+    animation: fadein 2s;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 25px;
+}
+
+h3, h6 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(52, 152, 219);
+}
+a:hover {
+    color: rgb(42, 48, 54);
+    transition: all 0.5s ease-in;
+}
+
+  /* RESPONSIVE HOVER */
+
+.view {
+    background-color: rgb(188, 216, 245);
+    padding: 1.250em;
+    margin: 16px;
+}
+.view:h3 {
+    margin-top: 0;
+}
+
+.view:h6 {
+    margin-bottom: 0;
+    line-height: 2em;
+    text-transform: uppercase;
+}
+
+  /* MEDIA QUERIES */
+@media screen and (min-width: 48em) {
+    /* RESPONSIVE HOVER */
+    section {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .view {
+        width: 480px;
+        height: 300px;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 1px 1px 2px rgb(230, 230, 230);
+        cursor: pointer;
+        margin: 16px;
+    }
+    .view.mask {
+        width: 480px;
+        height: 300px;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background-color: rgba(188,216,245, 0.7);
+        transition: all 0.25s ease-out;
+        padding: 16px;
+    }
+    .view.img {
+        display: block;
+        position: relative;
+        transition: all 0.2s linear;
+    }
+
+    
+    :hover.img {
+            transform: scale(1.1);
+        }
+    :hover.mask {
+            opacity: 1;
+        }
+    }
