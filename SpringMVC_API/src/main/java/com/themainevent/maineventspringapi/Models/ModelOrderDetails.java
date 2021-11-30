@@ -10,6 +10,7 @@ public class ModelOrderDetails {
 
     @Id
     private String _id;
+    private String typeOfEvent;
     private String dateOfEvent;
     private String timeOfEvent;
     private String locationOfEvent;
@@ -21,7 +22,8 @@ public class ModelOrderDetails {
 
     }
 
-    public ModelOrderDetails(String dateOfEvent, String timeOfEvent, String locationOfEvent, int numberOfGuests, float totalCostOfEvent, ArrayList<ModelMenuItem> menuItems) {
+    public ModelOrderDetails(String typeOfEvent, String dateOfEvent, String timeOfEvent, String locationOfEvent, int numberOfGuests, float totalCostOfEvent, ArrayList<ModelMenuItem> menuItems) {
+        this.typeOfEvent = typeOfEvent;
         this.dateOfEvent = dateOfEvent;
         this.timeOfEvent = timeOfEvent;
         this.locationOfEvent = locationOfEvent;
@@ -36,6 +38,14 @@ public class ModelOrderDetails {
 
     public void set_id(String _id) {
         this._id = _id;
+    }
+
+    public String getTypeOfEvent() {
+        return typeOfEvent;
+    }
+
+    public void setTypeOfEvent(String typeOfEvent) {
+        this.typeOfEvent = typeOfEvent;
     }
 
     public String getDateOfEvent() {
