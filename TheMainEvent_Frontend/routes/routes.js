@@ -25,6 +25,10 @@ exports.signIn = (req, res) => {
     res.render('signIn')
 };
 
+exports.signInChecked = (req, res) => {
+    res.render('account')
+};
+
 exports.createAccount = (req, res) => {
     res.render('createAccount');
 };
@@ -37,8 +41,10 @@ exports.checkAccount = (req, res) => {
     request.send();
     request.onload = () => {
         if (bcrypt.compareSync(req.body.password, request.responseText)) {
-            console.log("User has Logged On")
-            res.redirect('/')
+            req.session.user = {
+                isAuthenticated: true
+            }
+            res.redirect(req.cookies.path)
         } else {
             res.redirect('/signIn')
         }
