@@ -19,13 +19,13 @@ html(lang="en")
             h2 Order Information 
             div 
                 h4 Event Type: 
-                input(type='text' name='eventType' placeholder='Type of Event')
+                input(type='text' name='typeOfEvent' placeholder='Type of Event')
             br
             div 
                 h4 Date and Time: 
                 script(src='https://jsuites.net/v4/jsuites.js')
                 link(rel='stylesheet' href='https://jsuites.net/v4/jsuites.css' type='text/css')
-                input#calendar
+                input#calendar(name='dateOfEvent')
                 script.
                     jSuites.calendar(document.getElementById('calendar'), {
                     time:true,
@@ -38,14 +38,13 @@ html(lang="en")
             br
             div 
                 h3 Menu Selection 
-                section Menu Items 
-                    article.view American Picnic: 
-                        a(href="#")
-                            img(src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/71894/font-slate-mockup.jpg")
-                            .mask
-                                h6 process work
-                                h3 FontSlate website design
-                        
+                section
+                    article.view
+                        div(class='menuItem') 
+                            p American Picnic: 
+                            img(class='menuItemPic' src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/71894/font-slate-mockup.jpg")
+                            p(class='menuItemDesc') This is the Test Description
+            p(name='cost') 10.50
             br
             br
             br
