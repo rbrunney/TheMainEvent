@@ -5,12 +5,13 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Sign-In
+        link(href='/signIn.css', rel='stylesheet')
     body 
         //- Logo goes here
-        header  
+        header(id='signInHeader') 
             h1 Sign-In 
         br
-        form(action='/checkAccount' method='post')
+        form(id='signInForm' action='/checkAccount' method='post')
             input(type='text' name='username' placeholder='Username or Email', required)
             br
             br
@@ -21,4 +22,4 @@ html(lang="en")
             br 
             br
         br
-        a(href='/createAccount') Create Account
+        a(id='createAccountLink' href='/createAccount') Create Account
