@@ -25,7 +25,6 @@ public class OrderDetailsController {
     public String add(@RequestBody ModelOrderDetails orderDetails) {
         //Testing/Validating values
         System.out.println("[ORDER DETAILS INFO] Date: " + orderDetails.getDateOfEvent());
-        System.out.println("[ORDER DETAILS INFO] Time: " + orderDetails.getTimeOfEvent());
         System.out.println("[ORDER DETAILS INFO] Location: " + orderDetails.getLocationOfEvent());
         System.out.println("[ORDER DETAILS INFO] Num of Guests: " + orderDetails.getNumberOfGuests());
         System.out.println("[ORDER DETAILS INFO] Total Cost: " + orderDetails.getTotalCostOfEvent());
