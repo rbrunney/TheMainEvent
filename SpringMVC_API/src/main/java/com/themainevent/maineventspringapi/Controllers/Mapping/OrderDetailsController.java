@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.Path;
 import java.util.List;
 
 @RestController
@@ -21,8 +22,8 @@ public class OrderDetailsController {
         return "Hello from Order Details";
     }
 
-    @PostMapping(path="/add")
-    public String add(@RequestBody ModelOrderDetails orderDetails) {
+    @PostMapping(path="/add/{userEmail}")
+    public String add(@RequestBody ModelOrderDetails orderDetails, @PathVariable String userEmail) {
         //Testing/Validating values
         System.out.println("[ORDER DETAILS INFO] Date: " + orderDetails.getDateOfEvent());
         System.out.println("[ORDER DETAILS INFO] Location: " + orderDetails.getLocationOfEvent());
@@ -30,7 +31,7 @@ public class OrderDetailsController {
         System.out.println("[ORDER DETAILS INFO] Total Cost: " + orderDetails.getTotalCostOfEvent());
         System.out.println("[ORDER DETAILS INFO] Menu Items: " + orderDetails.getMenuItems());
 
-        return bllOrderDetails.add(orderDetails);
+        return bllOrderDetails.add(orderDetails, userEmail);
     }
 
 //    @DeleteMapping(path = "/delete/{name}")

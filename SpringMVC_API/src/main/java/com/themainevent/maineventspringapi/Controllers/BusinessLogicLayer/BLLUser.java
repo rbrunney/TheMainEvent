@@ -16,7 +16,7 @@ public class BLLUser {
     @Autowired
     private UserRepository userRepo;
 
-    public String addUser(ModelUser user) {
+    public String addUser(ModelUser user, String userEmail) {
         try {
             if(userRepo.findByUsername(user.getUsername()).getUsername().equals(user.getUsername())) {
                 throw new Exception();

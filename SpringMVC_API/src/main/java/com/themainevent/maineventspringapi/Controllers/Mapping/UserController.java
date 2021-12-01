@@ -20,8 +20,8 @@ public class UserController {
         return "Hello from the user";
     }
 
-    @PostMapping(path="/add")
-    public String add(@RequestBody ModelUser user) {
+    @PostMapping(path="/add/{userEmail}")
+    public String add(@RequestBody ModelUser user, @PathVariable String userEmail) {
         //Testing/validating Values
         System.out.println("[USER INFO] fname: " + user.getFname());
         System.out.println("[USER INFO] lname: " + user.getLname());
@@ -30,7 +30,7 @@ public class UserController {
         System.out.println("[USER INFO] customerID: " + user.getCustomerID());
         System.out.println("[USER INFO] user: " + user.getUsername());
         System.out.println("[USER INFO] password: " + user.getPassword());
-        return bllUser.addUser(user);
+        return bllUser.addUser(user, userEmail);
     }
 
     @GetMapping(path="/checkUser/{username}")

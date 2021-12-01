@@ -25,6 +25,11 @@ public class ModelMenuItem {
         this.ingredientsCost = ingredientsCost;
     }
 
+    @Override
+    public String toString() {
+        return nameOfDish;
+    }
+
     public String get_id() {
         return _id;
     }

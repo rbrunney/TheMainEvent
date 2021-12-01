@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Sign-In
+        link(href='/signIn.css', rel='stylesheet')
+    body 
+        //- Logo goes here
+        fieldset
+            legend Sign-In
+            div(id='signInFormContainer')
+                header(id='signInHeader') 
+                    h1 Sign-In 
+                br
+                form(id='signInForm' action='/checkAccount' method='post')
+                    input(type='text' name='username' placeholder='Username or Email', required)
+                    br
+                    br
+                    input(type='text' name='password' placeholder='Password' required)
+                    br 
+                    br 
+                    input(type='submit' value='Sign In')
+                    br 
+                    br
+                br
+                div(id='createAccountLink')
+                    a(href='/createAccount') Create Account
