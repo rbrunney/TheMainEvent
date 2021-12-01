@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Rammetto+One&family=Work+Sans&display=swap');
+
+html, body {
+    margin:0px;
+    height:100%;
+    background: #fff; 
+    font-family: 'Rammetto One';
+}
+
+#signInFormContainer {
+    padding: 10%;
+    text-align: center;
+}
+
+#signInHeader {
+    text-align: center;
+}
+
+#signInForm {
+    text-align: center;
+}
+
+#createAccountLink {
+    text-align: center;
+}

@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Rammetto+One&family=Work+Sans&display=swap');
+
+html, body{
+    text-align: center;
+    margin: 0px;
+    height:100%;
+    background-color: lightgray;
+    font-family: 'Rammetto One';
+}
+
+#container {
+    text-align: center;
+    margin: 0px;
+    height:100%;
+}
+
+#mainPageBar {
+    display: flex;
+    flex-direction: row;
+    height: 7%;
+}
+
+#logo {
+    flex: 1;
+}
+
+.menuNav {
+    background-color: #141414;
+    overflow: hidden;
+    flex:6;
+}
+
+.menuNav a {
+    float: left;
+    color: #f3f3f3;
+    text-align: center;
+    padding: 1.5%;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.menuNav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.signIn {
+    background-color: #141414;
+    flex: 0.7;
+}
+
+.signIn a{
+    float: right;
+    color: #f3f3f3;
+    text-align: center;
+    padding: 11%;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.menuItem {
+    position: relative;
+    /* height: 200px;
+    width: 257px; */
+    max-height: 500px;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+.menuItemPic{
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.menuItemDesc {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(29, 106, 154, 0.72);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+}
+
+.menuItem:hover .menuItemDesc {
+    visibility: visible;
+    opacity: 1;
+}

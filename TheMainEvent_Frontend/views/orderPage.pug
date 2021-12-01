@@ -1,0 +1,53 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Order Page
+        link(href='/orderPage.css', rel='stylesheet')
+    body
+        div(id='container')
+            div(id='mainPageBar') 
+                div(id='logo' class='box') Logo Goes Here
+                div(class='menuNav')
+                    a(href='/') Home
+                    a(href='/order') Book Event
+                    a(href='/account') Account
+                div(class='signIn')
+                    a(href='/signIn') Sign-In
+            h2 Order Information 
+            div 
+                h4 Event Type: 
+                input(type='text' name='typeOfEvent' placeholder='Type of Event')
+            br
+            div 
+                h4 Date and Time: 
+                script(src='https://jsuites.net/v4/jsuites.js')
+                link(rel='stylesheet' href='https://jsuites.net/v4/jsuites.css' type='text/css')
+                input#calendar(name='dateOfEvent')
+                script.
+                    jSuites.calendar(document.getElementById('calendar'), {
+                    time:true,
+                    format:'DD/MM/YYYY HH24:MI',
+                    });
+            br
+            div 
+                h4 Number of People: 
+                input(type='text' name='numOfPeople' placeholder='Number of Guests')
+            br
+            div 
+                h3 Menu Selection 
+                section
+                    article.view
+                        div(class='menuItem') 
+                            p American Picnic: 
+                            img(class='menuItemPic' src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/71894/font-slate-mockup.jpg")
+                            p(class='menuItemDesc') This is the Test Description
+            p(name='cost') 10.50
+            br
+            br
+            br
+            div 
+                p Sign in to Schedule Now!! 
+

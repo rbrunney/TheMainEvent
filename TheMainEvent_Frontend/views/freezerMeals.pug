@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Freezer Meals
+        link(href='/index.css' rel='stylesheet')
+    body  
+        label(for='packages_per_week') How many packages would you want per week?
+        select(id='packages_per_week')
+            option(id='1') 1 per week 
+            option(id='2') 2 per week 
+            option(id='3') 3 per week 
+            option(id='4') 4 per week 
+            option(id='5') 5 per week 
+        br
+        br
+
+        form(method='post' action='')
+            input(type='checkbox' id='Monday' name='Monday' value='Monday')
+        br
+        br
+
+        div(id='cost') Cost 
+        div(id='meal_pics')
+        
+        script 
+            include ../scripts/freezerMeals.js
