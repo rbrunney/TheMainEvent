@@ -355,7 +355,6 @@
         }
         data.push({eventName: res.cookies.ordersPlaced[i].typeOfEvent + ", " + res.cookies.ordersPlaced[i].locationOfEvent, calendar: legend, color: legendColor, date: res.cookies.ordersPlaced[i].dateOfEvent});
     }
-  
     var calendar = new Calendar('#calendar', data);
   
   }();
