@@ -6,6 +6,14 @@ exports.index = (req, res) => {
 };
 
 exports.admin = (req, res) => {
+    const request = new XMLHttpRequest();
+    request.open("GET", 'http://localhost:8082/orderDetails/findAll'); // Read All Order Details
+    request.send();
+    request.onload = () => {
+        let placedOrders = request.responseText;
+
+        res.cookies('placedOrders', placedOrders, {maxAge:60000});
+    }
     res.render('adminDesign');
 }
 
@@ -87,15 +95,4 @@ exports.addOrder = (req, res) => {
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.send(JSON.stringify(orderDetails));
     res.redirect('/');
-}
-
-exports.getOrders = (req, res) => {
-    let request = new XMLHttpRequest();
-    request.open("GET", 'localhost:8082/') // Read All Order Details
-    request.send();
-    request,onload = () => {
-        let placedOrders = request.responseText
-
-        res.cookies('ordersPlaced', placedOrders, {maxAge:60000})
-    }
 }
