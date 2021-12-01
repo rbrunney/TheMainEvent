@@ -88,3 +88,14 @@ exports.addOrder = (req, res) => {
     request.send(JSON.stringify(orderDetails));
     res.redirect('/');
 }
+
+exports.getOrders = (req, res) => {
+    let request = new XMLHttpRequest();
+    request.open("GET", 'localhost:8082/') // Read All Order Details
+    request.send();
+    request,onload = () => {
+        let placedOrders = request.responseText
+
+        res.cookies('ordersPlaced', placedOrders, {maxAge:60000})
+    }
+}
