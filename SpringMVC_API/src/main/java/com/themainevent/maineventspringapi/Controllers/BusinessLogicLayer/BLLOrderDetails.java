@@ -41,6 +41,17 @@ public class BLLOrderDetails {
         }
     }
 
+    //Find all
+
+    public List<ModelOrderDetails> findAllOrders(){
+        try {
+            return orderDetailRepo.findAll();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 //    //Find By Name
 //    public List<ModelOrderDetails> getByFirstName(String name){
 //        return orderDetailRepo.findByName(name);

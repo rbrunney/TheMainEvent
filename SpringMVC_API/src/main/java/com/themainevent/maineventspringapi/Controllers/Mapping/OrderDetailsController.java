@@ -34,6 +34,11 @@ public class OrderDetailsController {
         return bllOrderDetails.add(orderDetails, userEmail);
     }
 
+    @GetMapping(path = "/findAll")
+    public List<ModelOrderDetails> findAll(){
+        return bllOrderDetails.findAllOrders();
+    }
+
 //    @DeleteMapping(path = "/delete/{name}")
 //    @ResponseStatus(code = HttpStatus.OK)
 //    public String delete(@PathVariable String name){return bllOrderDetails.Delete(name);}

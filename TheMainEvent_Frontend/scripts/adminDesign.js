@@ -319,7 +319,19 @@
     }
   }();
   
-  !function() {
+
+  !function(req, res) {
+
+    for(i=0; i<res.cookies.ordersPlaced.length; i++) {
+        let isAccepted = false;
+        let legend = ''
+        if(isAccepted) {
+            legend = 'Accepted'
+        } else {
+            legend = 'Pending'
+        }
+        data.push({eventName: res.cookies.ordersPlaced[i].typeOfEvent + ", " + res.cookies.ordersPlaced[i].locationOfEvent, calendar: legend})
+    }
     var data = [
       { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange', date: '2021-12-08' },
       { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange', date: '2021-03-08' },
