@@ -10,9 +10,9 @@ exports.admin = (req, res) => {
     request.open("GET", 'http://localhost:8082/orderDetails/findAll'); // Read All Order Details
     request.send();
     request.onload = () => {
-        let placedOrders = request.responseText;
+        console.log("good evenin")
+        console.log(request.responseText)
 
-        res.cookies('placedOrders', placedOrders, {maxAge:60000});
     }
     res.render('adminDesign');
 }

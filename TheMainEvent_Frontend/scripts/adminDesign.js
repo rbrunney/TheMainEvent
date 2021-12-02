@@ -344,19 +344,19 @@
     //   { eventName: 'Teach Kids to Code', calendar: 'Other', color: 'green', date: '2014-03-04' },
     //   { eventName: 'Startup Weekend', calendar: 'Other', color: 'green', date: '2014-03-17' }
     ];
-    // for(i=0; i<res.cookies.placedOrders.length; i++) {
-    //     let isAccepted = false;
-    //     let legend = '';
-    //     let legendColor = '';
-    //     if(isAccepted) {
-    //         legend = 'Accepted';
-    //         legendColor = 'green';
-    //     } else {
-    //         legend = 'Pending';
-    //         legendColor = 'yellow';
-    //     }
-    //     data.push({eventName: res.cookies.placedOrders[i].typeOfEvent + ", " + res.cookies.placedOrders[i].locationOfEvent, calendar: legend, color: legendColor, date: res.cookies.placedOrders[i].dateOfEvent});
-    // }
+    for(i=0; i<res.cookies.placedOrders.length; i++) {
+        let isAccepted = false;
+        let legend = '';
+        let legendColor = '';
+        if(isAccepted) {
+            legend = 'Accepted';
+            legendColor = 'green';
+        } else {
+            legend = 'Pending';
+            legendColor = 'yellow';
+        }
+        data.push({eventName: res.cookies.placedOrders[i].typeOfEvent + ", " + res.cookies.placedOrders[i].locationOfEvent, calendar: legend, color: legendColor, date: res.cookies.placedOrders[i].dateOfEvent});
+    }
   
     var calendar = new Calendar('#calendar', data);
   
