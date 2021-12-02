@@ -9,13 +9,12 @@ html(lang="en")
     body 
         //- Logo goes here
         fieldset
-            legend Sign-In
             div(id='signInFormContainer')
                 header(id='signInHeader') 
                     h1 Sign-In 
                 br
                 form(id='signInForm' action='/checkAccount' method='post')
-                    input(type='text' name='username' placeholder='Username or Email', required)
+                    input(type='text' name='username' placeholder='Username', required)
                     br
                     br
                     input(type='text' name='password' placeholder='Password' required)
