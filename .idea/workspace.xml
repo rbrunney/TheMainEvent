@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="143b20b9-8d3f-408a-b3b2-d3c0c62166bf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheMainEvent_Frontend/public/orderPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/TheMainEvent_Frontend/public/orderPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheMainEvent_Frontend/scripts/orderPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/TheMainEvent_Frontend/scripts/orderPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheMainEvent_Frontend/views/orderPage.pug" beforeDir="false" afterPath="$PROJECT_DIR$/TheMainEvent_Frontend/views/orderPage.pug" afterDir="false" />
-    </list>
+    <list default="true" id="143b20b9-8d3f-408a-b3b2-d3c0c62166bf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +19,6 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/SpringMVC_API" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -38,22 +31,10 @@
       <updated>1637027302255</updated>
       <workItem from="1637027304436" duration="119000" />
       <workItem from="1637027892996" duration="382000" />
-      <workItem from="1638407653537" duration="919000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
