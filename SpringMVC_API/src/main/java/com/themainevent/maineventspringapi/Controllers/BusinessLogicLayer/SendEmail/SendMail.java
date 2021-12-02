@@ -23,6 +23,8 @@ public class SendMail {
         props.put("mail.smtp.host", emailSMTPserver);
         props.put("mail.smtp.port", emailServerPort);
         props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.starttls.required", "true");
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.socketFactory.port", emailServerPort);
         props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
@@ -36,7 +38,7 @@ public class SendMail {
             MimeMessage msg = new MimeMessage(session);
             msg.setContent(emailBody, "text/html");
             msg.setSubject(emailSubject);
-            msg.setFrom(new InternetAddress(senderEmail));
+            msg.setFrom(new InternetAddress(senderEmail, "The Main Event"));
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(receiverEmail));
             Transport.send(msg);
             System.out.println("Email Sent Successfully");
