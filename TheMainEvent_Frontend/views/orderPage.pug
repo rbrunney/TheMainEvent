@@ -17,108 +17,37 @@ html(lang="en")
                 div(class='signIn')
                     a(href='/signIn') Sign-In
             h2 Order Information 
-            form(action='/addOrder' method='post')
-                div 
-                    h4 Event Type: 
-                    input(type='text' name='typeOfEvent' placeholder='Type of Event')
-                br
-                div 
-                    h4 Date and Time: 
-                    script(src='https://jsuites.net/v4/jsuites.js')
-                    link(rel='stylesheet' href='https://jsuites.net/v4/jsuites.css' type='text/css')
-                    input#calendar(name='dateOfEvent')
-                    script.
-                        jSuites.calendar(document.getElementById('calendar'), {
-                        time:true,
-                        format:'DD/MM/YYYY HH24:MI',
-                        });
-                br
-                div 
-                    h4 Number of People: 
-                    input(type='text' name='numOfPeople' placeholder='Number of Guests')
-                br
-                div 
-                    h3 Menu Selection 
-                    section
-                        div(class='menuItem')  
-                            img(class='menuItemPic' src="https://www.thespruceeats.com/thmb/fNytOL9KhN7sYL-d0sDCASJydiU=/4256x2832/filters:fill(auto,1)/3-ingredient-crock-pot-pulled-pork-3059934-hero-01-d2a8034441d64b519f682aac8fbf7b3b.jpg")
-                            pre(class='menuItemDesc')
-                                code.
-                                    American Picnic:
-                                    House BBQ Pulled Pork
-                                    Brioche Bun
-                                    House Coleslaw 
-                                    House Potato/Garden Salad
-                                    Bag of Chips (Selection)
-                                    House Sugar Smash Cookie
-                                    Choice of 2 Drinks 
-                                    ______COST: 11.00_______ 
-                        div(class='menuItem')  
-                            img(class='menuItemPic' src="https://images-gmi-pmc.edge-generalmills.com/331fb539-79c0-4664-b1f6-1107d8cc8bef.jpg")
-                            pre(class='menuItemDesc')
-                                code.
-                                    Lemon Grilled Chicken and Rice Pilaf:
-                                    House Lemon Grilled Chicken
-                                    House Lemon Cream White Wine Sauce 
-                                    House Rice Pilaf with Wild Grain Rice
-                                    House Strawberry Walnut Salad
-                                    House Bundt Cake Bar
-                                    ---Choice Of: 
-                                    ------House Chocolate Bundt Cake
-                                    ------House Vanilla Bundt Cake
-                                    ------House Hot Fudge Sauce 
-                                    ------House Melted Caramel Sauce 
-                                    ------House Mountain Berry Sauce
-                                    ------Sliced Almonds
-                                    ------House Whipped Cream
-                                    Choice of 2 Drinks 
-                                    ______COST: 13.50_______ 
-                    section
-                        div(class='menuItem')  
-                            img(class='menuItemPic' src="https://www.smokedmeatsunday.com/wp-content/uploads/2020/01/Smoked-Filet-Mignon-4-1024x683.jpg")
-                            pre(class='menuItemDesc')
-                                code.
-                                    Bacon Wrapped Bistro Steaks:
-                                    House Bacon Wrapped Bistro Steaks
-                                    House Bleu Cheese and Horseradish Steak Sauce
-                                    House Loaded Mashed Potatoes
-                                    House Strawberry Walnut Salad
-                                    House Bundt Cake Bar
-                                    ---Choice Of: 
-                                    ------House Chocolate Bundt Cake
-                                    ------House Vanilla Bundt Cake
-                                    ------House Hot Fudge Sauce 
-                                    ------House Melted Caramel Sauce 
-                                    ------House Mountain Berry Sauce
-                                    ------Sliced Almonds
-                                    ------House Whipped Cream
-                                    Choice of 2 Drinks 
-                                    ______COST: 15.50_______ 
-                        div(class='menuItem')  
-                            img(class='menuItemPic' src="https://www.almanac.com/sites/default/files/styles/landscape/public/recipe-third-prize_crostini.jpg?itok=ASXihoHm")
-                            pre(class='menuItemDesc')
-                                code.
-                                    Hor Devours:
-                                    CHOICES--
-                                    --House Grilled Steak Ends 
-                                    --House Horseradish and Bleu Cheese Steak Sauce 
-                                    --House Caprese Shooters 
-                                    --House Chicken Salad Croissant Sandwiches 
-                                    --House Crostinis 
-                                    --House Bruscetta 
-                                    --House Open Faced Prosciutto Sandwiches 
-                                    --Cheese Tray 
-                                    --Vegetable Platter with House Ranch 
-                                    --House Cheesecake Cupcakes 
-                                    --House Wedding Size Sugar Smash Cookies
-                                    ----etc----
-                                    ----Anything by Request----
-                                    ______COST: 15.00_______
-                br
-                p All Prices Subject to Change Based on Final Selections 
-                p Above Prices are Based Off of the Basic Meal
-                br
-                input(type='submit' value='Order')
             div 
-                p Sign in to Schedule Now!!
-                //this comment for saving things. IDK why eveything broke.
+                h4 Event Type: 
+                input(type='text' name='typeOfEvent' placeholder='Type of Event')
+            br
+            div 
+                h4 Date and Time: 
+                script(src='https://jsuites.net/v4/jsuites.js')
+                link(rel='stylesheet' href='https://jsuites.net/v4/jsuites.css' type='text/css')
+                input#calendar(name='dateOfEvent')
+                script.
+                    jSuites.calendar(document.getElementById('calendar'), {
+                    time:true,
+                    format:'DD/MM/YYYY HH24:MI',
+                    });
+            br
+            div 
+                h4 Number of People: 
+                input(type='text' name='numOfPeople' placeholder='Number of Guests')
+            br
+            div 
+                h3 Menu Selection 
+                section
+                    article.view
+                        div(class='menuItem') 
+                            p American Picnic: 
+                            img(class='menuItemPic' src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/71894/font-slate-mockup.jpg")
+                            p(class='menuItemDesc') This is the Test Description
+            p(name='cost') 10.50
+            br
+            br
+            br
+            div 
+                p Sign in to Schedule Now!! 
+
