@@ -7,6 +7,50 @@ html, body {
     font-family: 'Rammetto One';
 }
 
+#mainPageBar {
+    display: flex;
+    flex-direction: row;
+    height: 7%;
+}
+
+#logo {
+    flex: 1;
+}
+
+.menuNav {
+    background-color: #141414;
+    overflow: hidden;
+    flex:6;
+}
+
+.menuNav a {
+    float: left;
+    color: #f3f3f3;
+    text-align: center;
+    padding: 1.5%;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.menuNav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.signIn {
+    background-color: #141414;
+    flex: 0.7;
+}
+
+.signIn a{
+    float: right;
+    color: #f3f3f3;
+    text-align: center;
+    padding: 11%;
+    text-decoration: none;
+    font-size: 17px;
+}
+
 fieldset {
     background-color: #e3e3e3;
     display: block;
