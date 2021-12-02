@@ -32,7 +32,7 @@ public class BLLOrderDetails {
                     "    <h3 style='text-align: center; text-decoration: underline;'> Menu Items </h3>\n");
 
             for(ModelMenuItem menuItem : orderDetails.getMenuItems()) {
-                emailBody.append("<h5 style='text-align: center;'> " + menuItem.toString() + " </h5>\n");
+                emailBody.append("<h5 style='text-align: center;'> ").append(menuItem.toString()).append(" </h5>\n");
             }
 
             new SendMail(userEmail, "Order Confirmation", emailBody.toString());
