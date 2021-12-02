@@ -82,9 +82,13 @@ exports.addOrder = (req, res) => {
         totalCostOfEvent: req.body.cost,
         menuItems: req.body.menu
     }
-    const request = new XMLHttpRequest();
-    request.open("POST", "http://localhost:8082/orderDetails/add")
-    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    request.send(JSON.stringify(orderDetails));
-    res.redirect('/');
+    if(req.session.user.isAuthenticated){
+        const request = new XMLHttpRequest();
+        request.open("POST", "http://localhost:8082/orderDetails/add")
+        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        request.send(JSON.stringify(orderDetails));
+        res.redirect('/');
+    }else {
+        res.redirect('/signIn')
+    }
 }

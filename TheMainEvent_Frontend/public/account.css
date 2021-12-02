@@ -4,7 +4,7 @@ html, body{
     text-align: center;
     margin: 0px;
     height:100%;
-    background-color: lightgray;
+    background-color: #fff;
     font-family: 'Rammetto One';
 }
 
@@ -12,6 +12,22 @@ html, body{
     display: flex;
     flex-direction: row;
     height: 7%;
+}
+
+fieldset {
+    background-color: #e3e3e3;
+    display: block;
+    margin-right: 2px;
+    margin-left: 450px;
+    margin-top: 50px;
+    padding-top: 0.35em;
+    padding-bottom: 0.15em;
+    padding-left: 0.15em;
+    padding-right: 0.75em;
+    border: 2px solid black;
+    width: 600px;
+    height: 600px;
+    border-radius: 10px;
 }
 
 #logo {

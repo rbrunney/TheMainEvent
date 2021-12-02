@@ -30,6 +30,17 @@ const checkAuthAccount = (req, res, next) => {
     }
 };
 
+const checkAuthOrder = (req, res, next) => {
+    if(req.session.user && req.session.user.isAuthenticated) {
+        res.clearCookie('path');
+        console.log("This is yee right here");
+        next();
+    } else {
+        res.cookie('path', '/order', {maxAge:60000});
+        res.redirect('/signIn');
+    }
+};
+
 const urlencoderParser = express.urlencoded({
     extended: false
 });
@@ -42,6 +53,7 @@ app.post('/checkAccount', urlencoderParser, routes.checkAccount);
 app.get('/createAccount', routes.createAccount);
 app.post('/addAccount', urlencoderParser, routes.addAccount);
 app.get('/order', routes.orderPage);
+app.post('/addOrder', routes.addOrder);
 app.get('/account', checkAuthAccount, routes.accountInfo);
 app.get('/meals', routes.freezerMeals);
 

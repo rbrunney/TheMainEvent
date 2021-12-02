@@ -67,19 +67,42 @@ fieldset {
     border-radius: 10px;
 }
 
-#signInFormContainer {
-    padding: 10%;
+#createAccount {
     text-align: center;
 }
 
-#signInHeader {
+#input {
     text-align: center;
 }
 
-#signInForm {
-    text-align: center;
+#fname {
+    margin: 10px;
 }
 
-#createAccountLink {
-    text-align: center;
+#lname {
+    margin: 10px;
+}
+
+#email {
+    margin: 10px;
+}
+
+#phone {
+    margin: 10px;
+}
+
+#username {
+    margin: 10px;
+}
+
+#password {
+    margin: 10px;
+}
+
+#confirmPassword {
+    margin: 10px;
+}
+
+#submit {
+    margin-top: 30px;
 }

@@ -5,21 +5,33 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Create Account
-    body 
-        form(action='/addAccount' method='post')
-            input(type='text' name='fname' placeholder='Enter First Name')
-            br 
-            input(type='text' name='lname' placeholder='Enter Last Name')
-            br
-            input(type='text' name='email' placeholder='Enter Email')
-            br
-            input(type='text' name='phone' placeholder='Enter Phone')
-            br
-            input(type='text' name='username' placeholder='Enter Username')
-            br
-            input(type='text' name='password' placeholder='Enter Password')
-            br
-            input(type='text' name='confirmPassword' placeholder='Confirm Password')
-            br
-            input(type='submit' value='Create Account')
-            br
+        link(href='/createAccount.css', rel='stylesheet')
+    body
+        div(id='mainPageBar') 
+            div(id='logo' class='box') Logo Goes Here
+            div(class='menuNav')
+                a(href='/') Home
+                a(href='/order') Book Event
+                a(href='/account') Account
+            div(class='signIn')
+                a(href='/signIn') Sign-In
+        fieldset 
+            h2(id='createAccount') Create Account
+            form(action='/addAccount' method='post')
+                div(id='input')
+                    input(type='text' name='fname' id='fname' placeholder='Enter First Name')
+                    br 
+                    input(type='text' name='lname' id='lname' placeholder='Enter Last Name')
+                    br
+                    input(type='text' name='email' id='email' placeholder='Enter Email')
+                    br
+                    input(type='text' name='phone' id='phone' placeholder='Enter Phone')
+                    br
+                    input(type='text' name='username' id='username' placeholder='Enter Username')
+                    br
+                    input(type='text' name='password' id='password' placeholder='Enter Password')
+                    br
+                    input(type='text' name='confirmPassword' id='confirmPassword' placeholder='Confirm Password')
+                    br
+                    input(type='submit' id='submit' value='Create Account')
+                    br
