@@ -6,6 +6,14 @@ exports.index = (req, res) => {
 };
 
 exports.admin = (req, res) => {
+    const request = new XMLHttpRequest();
+    request.open("GET", 'http://localhost:8082/orderDetails/findAll'); // Read All Order Details
+    request.send();
+    request.onload = () => {
+        console.log("good evenin")
+        console.log(request.responseText)
+
+    }
     res.render('adminDesign');
 }
 
