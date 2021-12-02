@@ -6,7 +6,15 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Create Account
         link(href='/createAccount.css', rel='stylesheet')
-    body 
+    body
+        div(id='mainPageBar') 
+            div(id='logo' class='box') Logo Goes Here
+            div(class='menuNav')
+                a(href='/') Home
+                a(href='/order') Book Event
+                a(href='/account') Account
+            div(class='signIn')
+                a(href='/signIn') Sign-In
         fieldset 
             h2(id='createAccount') Create Account
             form(action='/addAccount' method='post')
