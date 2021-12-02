@@ -173,6 +173,16 @@ html, body{
     flex: 6;
 }
 
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
 #contactPicture {
     flex: 2;
 }
