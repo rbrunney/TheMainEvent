@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="143b20b9-8d3f-408a-b3b2-d3c0c62166bf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheMainEvent_Frontend/public/orderPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/TheMainEvent_Frontend/public/orderPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheMainEvent_Frontend/scripts/orderPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/TheMainEvent_Frontend/scripts/orderPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheMainEvent_Frontend/views/orderPage.pug" beforeDir="false" afterPath="$PROJECT_DIR$/TheMainEvent_Frontend/views/orderPage.pug" afterDir="false" />
-    </list>
+    <list default="true" id="143b20b9-8d3f-408a-b3b2-d3c0c62166bf" name="Changes" comment="Changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
