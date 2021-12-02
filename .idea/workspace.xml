@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="143b20b9-8d3f-408a-b3b2-d3c0c62166bf" name="Changes" comment="" />
+=======
+    <list default="true" id="143b20b9-8d3f-408a-b3b2-d3c0c62166bf" name="Changes" comment="Changes" />
+>>>>>>> parent of 4b74017 (Revert "Update workspace.xml")
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
