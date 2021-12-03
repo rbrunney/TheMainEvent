@@ -10,6 +10,7 @@ public class ModelOrderDetails {
 
     @Id
     private String _id;
+    private boolean isAccepted;
     private String typeOfEvent;
     private String dateOfEvent;
     private String locationOfEvent;
@@ -36,6 +37,14 @@ public class ModelOrderDetails {
 
     public void set_id(String _id) {
         this._id = _id;
+    }
+
+    public boolean isAccepted() {
+        return isAccepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        isAccepted = accepted;
     }
 
     public String getTypeOfEvent() {
