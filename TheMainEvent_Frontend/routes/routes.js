@@ -84,10 +84,10 @@ exports.addAccount = (req, res) => {
 exports.addOrder = (req, res) => {
     let orderDetails = {
         typeOfEvent: req.body.typeOfEvent,
-        dateOfEvent: req.body.date,
-        locationOfEvent: req.body.location,
-        numberOfGuests: req.body.numOfPeople,
-        totalCostOfEvent: req.body.cost,
+        dateOfEvent: req.body.dateOfEvent,
+        locationOfEvent: req.body.locationOfEvent,
+        numberOfGuests: req.body.numberOfGuests,
+        totalCostOfEvent: req.body.totalCostOfEvent,
         menuItems: req.body.menu
     }
     if(req.session.user.isAuthenticated){
