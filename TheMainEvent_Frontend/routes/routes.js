@@ -44,7 +44,12 @@ exports.checkAccount = (req, res) => {
             req.session.user = {
                 isAuthenticated: true
             }
-            res.redirect(req.cookies.path)
+            if(req.cookies.path === undefined) {
+              res.redirect('/')  
+            } else {
+                res.redirect(req.cookies.path)
+            }
+            
         } else {
             res.redirect('/signIn')
         }
@@ -81,13 +86,34 @@ exports.addOrder = (req, res) => {
         totalCostOfEvent: req.body.totalCostOfEvent,
         menuItems: req.body.menu
     }
-    if(req.session.user.isAuthenticated){
-        const request = new XMLHttpRequest();
-        request.open("POST", "http://localhost:8082/orderDetails/add")
-        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        request.send(JSON.stringify(orderDetails));
-        res.redirect('/');
-    }else {
-        res.redirect('/signIn')
+
+    console.log(orderDetails)
+
+    try {
+        if(req.session.user.isAuthenticated){
+            const request = new XMLHttpRequest();
+            request.open("POST", "http://localhost:8082/orderDetails/add")
+            request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            request.send(JSON.stringify(orderDetails));
+            res.redirect('/');
+        } else {
+            res.redirect('/signIn');
+        }
+    } catch(err) {
+        res.cookie('path', '/confirmOrder', {maxAge:60000});
+        res.cookie('orderInfo', orderDetails, {maxAge:60000})
+        res.redirect('/signIn');
     }
+}
+
+exports.confirmOrder = (req, res) => {
+
+    let orderDetails = req.cookies.orderInfo;
+    res.clearCookie('orderInfo');
+
+    const request = new XMLHttpRequest();
+    request.open("POST", "http://localhost:8082/orderDetails/add")
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    request.send(JSON.stringify(orderDetails));
+    res.redirect('/');
 }

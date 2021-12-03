@@ -19,7 +19,7 @@ html(lang="en")
                     a(href='/signIn') Sign-In
             h2 Order Information 
             form(action='/addOrder' method='post')
-                div 
+                div(name ='typeOfEvent')
                     h4 Event Type: 
                     input(type='text' name='typeOfEvent' id='typeOfEvent' placeholder='Type of Event')
                 br
