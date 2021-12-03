@@ -241,9 +241,11 @@
         var div = createElement('div', 'event');
         var square = createElement('div', 'event-category ' + ev.color);
         var span = createElement('span', '', ev.eventName);
+        var button = createElement('button', '', 'Brrrrr');
   
         div.appendChild(square);
         div.appendChild(span);
+        span.appendChild(button);
         wrapper.appendChild(div);
       });
   
@@ -322,43 +324,47 @@
   }();
   
   !function(req, res) {
-
+    // const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
     var data = [
-    //   { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange', date: '2021-12-08' }
-    //   { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange', date: '2021-03-08' },
-    //   { eventName: 'Demo New App to the Board', calendar: 'Work', color: 'orange', date: '2014-02-13' },
-    //   { eventName: 'Dinner w/ Marketing', calendar: 'Work', color: 'orange', date: '2014-02-19' },
-  
-    //   { eventName: 'Game vs Portalnd', calendar: 'Sports', color: 'blue', date: '2014-02-28' },
-    //   { eventName: 'Game vs Houston', calendar: 'Sports', color: 'blue', date: '2014-03-19' },
-    //   { eventName: 'Game vs Denver', calendar: 'Sports', color: 'blue', date: '2014-02-04' },
-    //   { eventName: 'Game vs San Degio', calendar: 'Sports', color: 'blue', date: '2014-02-01' },
-  
-    //   { eventName: 'School Play', calendar: 'Kids', color: 'yellow', date: '2014-02-25' },
-    //   { eventName: 'Parent/Teacher Conference', calendar: 'Kids', color: 'yellow', date: '2014-02-19' },
-    //   { eventName: 'Pick up from Soccer Practice', calendar: 'Kids', color: 'yellow', date: '2014-03-31' },
-    //   { eventName: 'Ice Cream Night', calendar: 'Kids', color: 'yellow', date: '2014-02-20' },
-  
-    //   { eventName: 'Free Tamale Night', calendar: 'Other', color: 'green', date: '2014-02-08' },
-    //   { eventName: 'Bowling Team', calendar: 'Other', color: 'green', date: '2014-02-10' },
-    //   { eventName: 'Teach Kids to Code', calendar: 'Other', color: 'green', date: '2014-03-04' },
-    //   { eventName: 'Startup Weekend', calendar: 'Other', color: 'green', date: '2014-03-17' }
-    ];
-    for(i=0; i<res.cookies.placedOrders.length; i++) {
-        let isAccepted = false;
-        let legend = '';
-        let legendColor = '';
-        if(isAccepted) {
-            legend = 'Accepted';
-            legendColor = 'green';
-        } else {
-            legend = 'Pending';
-            legendColor = 'yellow';
+        //   { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange', date: '2021-12-08' }
+        //   { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange', date: '2021-03-08' },
+        //   { eventName: 'Demo New App to the Board', calendar: 'Work', color: 'orange', date: '2014-02-13' },
+        //   { eventName: 'Dinner w/ Marketing', calendar: 'Work', color: 'orange', date: '2014-02-19' },
+      
+        //   { eventName: 'Game vs Portalnd', calendar: 'Sports', color: 'blue', date: '2014-02-28' },
+        //   { eventName: 'Game vs Houston', calendar: 'Sports', color: 'blue', date: '2014-03-19' },
+        //   { eventName: 'Game vs Denver', calendar: 'Sports', color: 'blue', date: '2014-02-04' },
+        //   { eventName: 'Game vs San Degio', calendar: 'Sports', color: 'blue', date: '2014-02-01' },
+      
+        //   { eventName: 'School Play', calendar: 'Kids', color: 'yellow', date: '2014-02-25' },
+        //   { eventName: 'Parent/Teacher Conference', calendar: 'Kids', color: 'yellow', date: '2014-02-19' },
+        //   { eventName: 'Pick up from Soccer Practice', calendar: 'Kids', color: 'yellow', date: '2014-03-31' },
+        //   { eventName: 'Ice Cream Night', calendar: 'Kids', color: 'yellow', date: '2014-02-20' },
+      
+        //   { eventName: 'Free Tamale Night', calendar: 'Other', color: 'green', date: '2014-02-08' },
+        //   { eventName: 'Bowling Team', calendar: 'Other', color: 'green', date: '2014-02-10' },
+        //   { eventName: 'Teach Kids to Code', calendar: 'Other', color: 'green', date: '2014-03-04' },
+        //   { eventName: 'Startup Weekend', calendar: 'Other', color: 'green', date: '2014-03-17' }
+        ];
+    const request = new XMLHttpRequest();
+    request.open("GET", 'http://localhost:8082/orderDetails/findAll'); // Read All Order Details
+    request.send();
+    request.onload = () => {
+        var orders = JSON.parse(request.responseText)
+        for(var i = 0; i < orders.length; i++){
+            // data.push({ eventName: "Type of Event: " + orders[i].typeOfEvent + " Location: " +
+            // orders[i].locationOfEvent +
+            // " Number of Guests: " + orders[i].numberOfGuests,
+            // calendar: 'Kids', color: 'yellow', date: orders[i].dateOfEvent})
+            // data.push({eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange', date: '2021-12-08'});
+            data.push({eventName: "Type of Event: " + orders[i].typeOfEvent + ", Location: " +
+            orders[i].locationOfEvent +
+            " Number of Guests " + orders[i].numberOfGuests,
+            calendar: 'pending', color: 'yellow', date: orders[i].dateOfEvent})
         }
-        data.push({eventName: res.cookies.placedOrders[i].typeOfEvent + ", " + res.cookies.placedOrders[i].locationOfEvent, calendar: legend, color: legendColor, date: res.cookies.placedOrders[i].dateOfEvent});
+    
+        var calendar = new Calendar('#calendar', data);
     }
-  
-    var calendar = new Calendar('#calendar', data);
   
   }();
   
