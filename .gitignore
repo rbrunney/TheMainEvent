@@ -7,6 +7,9 @@
 # BlueJ files
 *.ctxt
 
+#Alex's Calendar
+jsuites.js
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
