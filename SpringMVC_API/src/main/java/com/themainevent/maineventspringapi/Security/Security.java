@@ -58,6 +58,7 @@ public class Security extends WebSecurityConfigurerAdapter  {
                 .antMatchers("/user/delete/{name}").hasRole("admin")
                 .antMatchers("/user/search/{name}").hasRole("admin")
                 .antMatchers("/user/update/{oldName}/{newName}").hasAnyRole("admin", "user")
+                .antMatchers("/email/**").permitAll()
                 //.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .csrf().disable()

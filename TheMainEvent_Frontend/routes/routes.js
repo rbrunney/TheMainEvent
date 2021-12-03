@@ -71,6 +71,17 @@ exports.addAccount = (req, res) => {
         request.open("POST", "http://localhost:8082/user/add");
         request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         request.send(JSON.stringify(user));
+        request.onload = () => {
+            console.log(request.responseText);
+        }
+
+        const sendEmail = new XMLHttpRequest();
+        sendEmail.open("GET", "http://localhost:8082/email/sendEmailConfirmation/" + req.body.email);
+        sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        sendEmail.send();
+        sendEmail.onload = () => {
+            console.log(sendEmail.responseText);
+        }
         res.redirect('/');
     } else {
         res.redirect('/createAccount');
@@ -100,6 +111,14 @@ exports.addOrder = (req, res) => {
             request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             request.send(JSON.stringify(orderDetails));
             res.redirect('/');
+
+            const sendEmail = new XMLHttpRequest();
+            sendEmail.open("POST", "http://localhost:8082/email/sendOrderPending/" + req.body.email);
+            sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            sendEmail.send(JSON.stringify(orderDetails));
+            sendEmail.onload = () => {
+                console.log(sendEmail.responseText);
+            }
         } else {
             res.redirect('/signIn');
         }
@@ -119,5 +138,13 @@ exports.confirmOrder = (req, res) => {
     request.open("POST", "http://localhost:8082/orderDetails/add")
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.send(JSON.stringify(orderDetails));
+
+    const sendEmail = new XMLHttpRequest();
+    sendEmail.open("POST", "http://localhost:8082/email/sendOrderPending/" + req.body.email);
+    sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    sendEmail.send(JSON.stringify(orderDetails));
+    sendEmail.onload = () => {
+        console.log(sendEmail.responseText);
+    }
     res.redirect('/');
 }
