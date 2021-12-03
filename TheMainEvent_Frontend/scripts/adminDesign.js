@@ -241,11 +241,22 @@
         var div = createElement('div', 'event');
         var square = createElement('div', 'event-category ' + ev.color);
         var span = createElement('span', '', ev.eventName);
-        var button = createElement('button', '', 'Brrrrr');
+        var acceptButton = createElement('button', '', 'Accept');
+        var denyButton = createElement('button', '', 'Deny');
+
+        acceptButton.onclick = function () {
+            alert("You just got accepted!");
+            
+        };
+
+        denyButton.onclick = function () {
+            alert("Get Canceled lol");
+        };
   
         div.appendChild(square);
         div.appendChild(span);
-        span.appendChild(button);
+        span.appendChild(acceptButton);
+        span.appendChild(denyButton);
         wrapper.appendChild(div);
       });
   
@@ -324,7 +335,6 @@
   }();
   
   !function(req, res) {
-    // const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
     var data = [
         //   { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange', date: '2021-12-08' }
         //   { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange', date: '2021-03-08' },
@@ -352,11 +362,6 @@
     request.onload = () => {
         var orders = JSON.parse(request.responseText)
         for(var i = 0; i < orders.length; i++){
-            // data.push({ eventName: "Type of Event: " + orders[i].typeOfEvent + " Location: " +
-            // orders[i].locationOfEvent +
-            // " Number of Guests: " + orders[i].numberOfGuests,
-            // calendar: 'Kids', color: 'yellow', date: orders[i].dateOfEvent})
-            // data.push({eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange', date: '2021-12-08'});
             data.push({eventName: "Type of Event: " + orders[i].typeOfEvent + ", Location: " +
             orders[i].locationOfEvent +
             " Number of Guests " + orders[i].numberOfGuests,
