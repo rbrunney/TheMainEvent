@@ -53,7 +53,8 @@ app.post('/checkAccount', urlencoderParser, routes.checkAccount);
 app.get('/createAccount', routes.createAccount);
 app.post('/addAccount', urlencoderParser, routes.addAccount);
 app.get('/order', routes.orderPage);
-app.post('/addOrder', routes.addOrder);
+app.post('/addOrder', urlencoderParser, routes.addOrder);
+app.get('/confirmOrder', routes.confirmOrder);
 app.get('/account', checkAuthAccount, routes.accountInfo);
 app.get('/meals', routes.freezerMeals);
 
