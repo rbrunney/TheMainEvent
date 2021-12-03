@@ -72,7 +72,6 @@ exports.addAccount = (req, res) => {
     }
 };
 
-//STILL WORKING ON IT
 exports.addOrder = (req, res) => {
     let orderDetails = {
         typeOfEvent: req.body.typeOfEvent,

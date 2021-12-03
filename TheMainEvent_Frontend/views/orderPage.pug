@@ -21,7 +21,7 @@ html(lang="en")
             form(action='/addOrder' method='post')
                 div 
                     h4 Event Type: 
-                    input(type='text' id='typeOfEvent' placeholder='Type of Event')
+                    input(type='text' name='typeOfEvent' id='typeOfEvent' placeholder='Type of Event')
                 br
                 div 
                     h4 Date and Time: 
@@ -37,16 +37,16 @@ html(lang="en")
                 br
                 div 
                     h4 Location of Event:
-                    input(type='text' id='locationOfEvent' placeholder='Location')
+                    input(type='text' name='locationOfEvent' id='locationOfEvent' placeholder='Location')
                 br
                 div 
                     h4 Number of People: 
-                    input(type='text' id='numberOfGuests' placeholder='Number of Guests')
+                    input(type='text' name='numberOfGuests' id='numberOfGuests' placeholder='Number of Guests')
                 br
                 div 
                     h3 Menu Selection 
                     section
-                        input(type='checkbox' id='American Picnic')
+                        input(type='checkbox' name='American Picnic' id='American Picnic')
                         label(for='American Picnic')
                             div(class='menuItem')  
                                 img(class='menuItemPic' src="https://www.thespruceeats.com/thmb/fNytOL9KhN7sYL-d0sDCASJydiU=/4256x2832/filters:fill(auto,1)/3-ingredient-crock-pot-pulled-pork-3059934-hero-01-d2a8034441d64b519f682aac8fbf7b3b.jpg")
@@ -61,7 +61,7 @@ html(lang="en")
                                         House Sugar Smash Cookie
                                         Choice of 2 Drinks 
                                         ______COST: 11.00_______ 
-                        input(type='checkbox' id='Grilled Chicken')
+                        input(type='checkbox' name='Grilled Chicken' id='Grilled Chicken')
                         label(for='Grilled Chicken')
                             div(class='menuItem')  
                                 img(class='menuItemPic' src="https://images-gmi-pmc.edge-generalmills.com/331fb539-79c0-4664-b1f6-1107d8cc8bef.jpg")
@@ -84,7 +84,7 @@ html(lang="en")
                                         Choice of 2 Drinks 
                                         ______COST: 13.50_______ 
                     section
-                        input(type='checkbox' id='Bacon Wrapped Steak')
+                        input(type='checkbox' name='Bacon Wrapped Steak' id='Bacon Wrapped Steak')
                         label(for='Bacon Wrapped Steak')
                             div(class='menuItem')  
                                 img(class='menuItemPic' src="https://www.smokedmeatsunday.com/wp-content/uploads/2020/01/Smoked-Filet-Mignon-4-1024x683.jpg")
@@ -106,7 +106,7 @@ html(lang="en")
                                         ------House Whipped Cream
                                         Choice of 2 Drinks 
                                         ______COST: 15.50_______ 
-                        input(type='checkbox' id='Hor Devours')
+                        input(type='checkbox' name='Hor Devours' id='Hor Devours')
                         label(for='Hor Devours')
                             div(class='menuItem')  
                                 img(class='menuItemPic' src="https://www.almanac.com/sites/default/files/styles/landscape/public/recipe-third-prize_crostini.jpg?itok=ASXihoHm")
@@ -134,7 +134,7 @@ html(lang="en")
                 p All Prices Subject to Change Based on Final Selections 
                 p Above Prices are Based Off of the Basic Meal
                 br
-                input(type='submit' value='Order')
+                input(type='submit' id='submit' value='Order Now')
             div 
                 p Sign in to Schedule Now!!
     script 
