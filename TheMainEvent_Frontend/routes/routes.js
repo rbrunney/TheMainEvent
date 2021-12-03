@@ -6,14 +6,6 @@ exports.index = (req, res) => {
 };
 
 exports.admin = (req, res) => {
-    const request = new XMLHttpRequest();
-    request.open("GET", 'http://localhost:8082/orderDetails/findAll'); // Read All Order Details
-    request.send();
-    request.onload = () => {
-        console.log("good evenin")
-        console.log(request.responseText)
-
-    }
     res.render('adminDesign');
 }
 
@@ -84,10 +76,10 @@ exports.addAccount = (req, res) => {
 exports.addOrder = (req, res) => {
     let orderDetails = {
         typeOfEvent: req.body.typeOfEvent,
-        dateOfEvent: req.body.date,
-        locationOfEvent: req.body.location,
-        numberOfGuests: req.body.numOfPeople,
-        totalCostOfEvent: req.body.cost,
+        dateOfEvent: req.body.dateOfEvent,
+        locationOfEvent: req.body.locationOfEvent,
+        numberOfGuests: req.body.numberOfGuests,
+        totalCostOfEvent: req.body.totalCostOfEvent,
         menuItems: req.body.menu
     }
     if(req.session.user.isAuthenticated){
