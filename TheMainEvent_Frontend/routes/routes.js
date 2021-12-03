@@ -78,13 +78,17 @@ exports.addAccount = (req, res) => {
 };
 
 exports.addOrder = (req, res) => {
+    const GrilledChicken = document.getElementById('Grilled Chicken');
+    const AmericanPicnic = document.getElementById('American Picnic');
+    const BaconSteak = document.getElementById('Bacon Steak');
+    const HorDevours = document.getElementById('Hor Devours');
     let orderDetails = {
         typeOfEvent: req.body.typeOfEvent,
         dateOfEvent: req.body.dateOfEvent,
         locationOfEvent: req.body.locationOfEvent,
         numberOfGuests: req.body.numberOfGuests,
         totalCostOfEvent: req.body.totalCostOfEvent,
-        menuItems: req.body.menu
+        menuItems: req.body.menuItems
     }
 
     console.log(orderDetails)
