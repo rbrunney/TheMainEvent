@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -35,7 +36,10 @@ public class OrderDetailsController {
     }
 
     @GetMapping(path = "/findAll")
-    public List<ModelOrderDetails> findAll(){
+    public List<ModelOrderDetails> findAll(HttpServletResponse response){
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Headers",
+                "Origin, X-Requested-With, Context-Type, Accept*");
         return bllOrderDetails.findAllOrders();
     }
 
