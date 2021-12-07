@@ -61,7 +61,7 @@ exports.addAccount = (req, res) => {
         let user = {
             fname: req.body.fname,
             lname: req.body.lname,
-            email: bcrypt.hashSync(req.body.email, bcrypt.genSaltSync(10)),
+            email: req.body.email,
             phone: bcrypt.hashSync(req.body.phone, bcrypt.genSaltSync(10)),
             username: req.body.username,
             password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)),
