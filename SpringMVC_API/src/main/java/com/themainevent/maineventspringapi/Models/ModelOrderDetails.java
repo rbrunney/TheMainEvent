@@ -16,13 +16,13 @@ public class ModelOrderDetails {
     private String locationOfEvent;
     private int numberOfGuests;
     private float totalCostOfEvent;
-    private ArrayList<ModelMenuItem> menuItems;
+    private String menuItems;
 
     public ModelOrderDetails() {
 
     }
 
-    public ModelOrderDetails(String typeOfEvent, String dateOfEvent, String locationOfEvent, int numberOfGuests, float totalCostOfEvent, ArrayList<ModelMenuItem> menuItems) {
+    public ModelOrderDetails(String typeOfEvent, String dateOfEvent, String locationOfEvent, int numberOfGuests, float totalCostOfEvent, String menuItems) {
         this.typeOfEvent = typeOfEvent;
         this.dateOfEvent = dateOfEvent;
         this.locationOfEvent = locationOfEvent;
@@ -87,11 +87,11 @@ public class ModelOrderDetails {
         this.totalCostOfEvent = totalCostOfEvent;
     }
 
-    public ArrayList<ModelMenuItem> getMenuItems() {
+    public String getMenuItems() {
         return menuItems;
     }
 
-    public void setMenuItems(ArrayList<ModelMenuItem> menuItems) {
+    public void setMenuItems(String menuItems) {
         this.menuItems = menuItems;
     }
 }

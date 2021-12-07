@@ -109,7 +109,7 @@ exports.addOrder = (req, res) => {
         locationOfEvent: req.body.locationOfEvent,
         numberOfGuests: req.body.numberOfGuests,
         totalCostOfEvent: req.body.totalCostOfEvent,
-        menuItems: req.body.menuItems
+        menuItems: meal
     }
 
     console.log(orderDetails)
@@ -149,12 +149,12 @@ exports.confirmOrder = (req, res) => {
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.send(JSON.stringify(orderDetails));
 
-    const sendEmail = new XMLHttpRequest();
-    sendEmail.open("POST", "http://localhost:8082/email/sendOrderPending/" + req.body.email);
-    sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    sendEmail.send(JSON.stringify(orderDetails));
-    sendEmail.onload = () => {
-        console.log(sendEmail.responseText);
-    }
+    // const sendEmail = new XMLHttpRequest();
+    // sendEmail.open("POST", "http://localhost:8082/email/sendOrderPending/" + req.body.email);
+    // sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    // sendEmail.send(JSON.stringify(orderDetails));
+    // sendEmail.onload = () => {
+    //     console.log(sendEmail.responseText);
+    // }
     res.redirect('/');
 }
