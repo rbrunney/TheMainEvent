@@ -23,7 +23,10 @@ public class ModelOrderDetails {
 
     }
 
-    public ModelOrderDetails(String typeOfEvent, String dateOfEvent, String locationOfEvent, int numberOfGuests, float totalCostOfEvent, String menuItems) {
+    public ModelOrderDetails(String _id, String customerID, boolean isAccepted, String typeOfEvent, String dateOfEvent, String locationOfEvent, int numberOfGuests, float totalCostOfEvent, String menuItems) {
+        this._id = _id;
+        this.customerID = customerID;
+        this.isAccepted = isAccepted;
         this.typeOfEvent = typeOfEvent;
         this.dateOfEvent = dateOfEvent;
         this.locationOfEvent = locationOfEvent;

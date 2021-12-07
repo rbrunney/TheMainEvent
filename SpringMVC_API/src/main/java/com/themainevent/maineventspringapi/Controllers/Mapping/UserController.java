@@ -40,7 +40,7 @@ public class UserController {
     public String getEmail(HttpServletResponse response, @PathVariable String id){
         response.addHeader("Access-Control-Allow-Origin", "*");
         response.addHeader("Access-Control-Allow-Headers",
-                "Origin, X-Requested-With, Context-Type, Accept*");
+                "Origin, X-Requested-With, Content-type: application/json, Accept:*");
         return bllUser.getEmailById(id);
     }
 
