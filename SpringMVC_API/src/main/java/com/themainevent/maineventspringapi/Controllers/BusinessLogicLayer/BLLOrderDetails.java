@@ -36,32 +36,13 @@ public class BLLOrderDetails {
         return null;
     }
 
-//    //Find By Name
-//    public List<ModelOrderDetails> getByFirstName(String name){
-//        return orderDetailRepo.findByName(name);
-//    }
-//
-//    //Delete
-//    public String Delete(String name){
-//        try {
-//            orderDetailRepo.deleteByName(name);
-//            return "Order Details has been deleted";
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            return "Order Details could not be Deleted";
-//        }
-//    }
-//
-//    //Update
-//    public String updateOrderDetails(String name, String newName){
-//        try {
-//            List<ModelOrderDetails> orderDetails = orderDetailRepo.findByName(name);
-//
-//
-//            return "Order Details has been Updated";
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            return "Order Details could not be Updated";
-//        }
-//    }
+    //Find by _id
+    public ModelOrderDetails findById(String id) {
+        try {
+            return orderDetailRepo.findBy_id(id);
+        } catch(Exception e) {
+            e.printStackTrace();
+            return new ModelOrderDetails();
+        }
+    }
 }

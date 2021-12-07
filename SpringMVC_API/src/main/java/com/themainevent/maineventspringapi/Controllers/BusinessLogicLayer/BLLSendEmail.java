@@ -26,7 +26,7 @@ public class BLLSendEmail {
             "    <h3 style='text-align: center; text-decoration: underline;'> Menu Items </h3>\n");
 
             try {
-                for(ModelMenuItem menuItem : order.getMenuItems()) {
+                for(String menuItem : order.getMenuItems()) {
                     emailBody.append("<h5 style='text-align: center;'> ").append(menuItem.toString()).append(" </h5>\n");
                 }
             } catch(Exception e) {

@@ -1,13 +1,11 @@
 package com.themainevent.maineventspringapi.Controllers.Mapping;
 
 import com.themainevent.maineventspringapi.Controllers.BusinessLogicLayer.BLLUser;
-import com.themainevent.maineventspringapi.Models.ModelInventory;
 import com.themainevent.maineventspringapi.Models.ModelUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping(path="/user")
@@ -27,7 +25,7 @@ public class UserController {
         System.out.println("[USER INFO] lname: " + user.getLname());
         System.out.println("[USER INFO] phone: " + user.getPhone());
         System.out.println("[USER INFO] email: " + user.getEmail());
-        System.out.println("[USER INFO] customerID: " + user.getCustomerID());
+        System.out.println("[USER INFO] customerID: " + user.get_id());
         System.out.println("[USER INFO] user: " + user.getUsername());
         System.out.println("[USER INFO] password: " + user.getPassword());
         return bllUser.addUser(user);
@@ -36,6 +34,14 @@ public class UserController {
     @GetMapping(path="/checkUser/{username}")
     public String checkUsers(@PathVariable String username) {
         return bllUser.checkUsers(username);
+    }
+
+    @GetMapping(path = "/getUserEmail/{id}")
+    public String getEmail(HttpServletResponse response, @PathVariable String id){
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Headers",
+                "Origin, X-Requested-With, Context-Type, Accept*");
+        return bllUser.getEmailById(id);
     }
 
 //    @DeleteMapping(path = "/delete/{name}")

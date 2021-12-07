@@ -10,8 +10,9 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends MongoRepository<ModelUser, String> {
-    @Query
     ModelUser findByUsername(String username);
+
+    ModelUser findBy_id(String _id);
 //    List<ModelUser> findByName(String name);
 //    ModelUser findFirstByName(String name);
 //

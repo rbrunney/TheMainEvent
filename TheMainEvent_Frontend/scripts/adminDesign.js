@@ -1,4 +1,4 @@
-// const cookies = require("cookie-parser");
+// const cookies = require("cookie-parser");  
 
 !function() {
 
@@ -247,9 +247,35 @@
         if(ev.isAccepted === false) {
           var acceptButton = createElement('button', '', 'Accept');
           var denyButton = createElement('button', '', 'Deny');
+          var email = '';
+          var orderDetails = '';
 
           acceptButton.onclick = function () {
-              alert("You just got accepted!");
+            alert("You just got accepted!");
+            
+            const request = new XMLHttpRequest();
+            request.open("GET", 'http://localhost:8082/user/getUserEmail/' + ev.customerID); // Read All Order Details
+            request.send();
+            request.onload = () => {
+              email = request.responseText;
+              console.log(email);
+              const requestOrderDetails = new XMLHttpRequest();
+                requestOrderDetails.open("GET", 'http://localhost:8082/orderDetails/getOrderDetailById/' + ev.orderId); // Read Order Detail by id
+                requestOrderDetails.send();
+                requestOrderDetails.onload = () => {
+                  orderDetails = requestOrderDetails.responseText;
+                  console.log(orderDetails);
+                  console.log(email);
+                  const requestOrderConfirmation = new XMLHttpRequest();
+                  requestOrderConfirmation.open("POST", 'http://localhost:8082/email/sendOrderConfirmation/' + email); // Read Order Confirmation
+                  requestOrderConfirmation.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                  requestOrderConfirmation.send(JSON.stringify(orderDetails));
+              }
+            }
+
+            
+
+            
               
           };
 
@@ -378,7 +404,7 @@
           data.push({eventName: "Type of Event: " + orders[i].typeOfEvent + ", Location: " +
           orders[i].locationOfEvent +
           " Number of Guests " + orders[i].numberOfGuests,
-          calendar: acceptedOrPending, color: yellowOrGreen, date: orders[i].dateOfEvent, isAccepted: orders[i].accepted})
+          calendar: acceptedOrPending, color: yellowOrGreen, date: orders[i].dateOfEvent, isAccepted: orders[i].accepted, orderId: orders[i]._id, customerID: orders[i].customerID})
         }
     
         var calendar = new Calendar('#calendar', data);

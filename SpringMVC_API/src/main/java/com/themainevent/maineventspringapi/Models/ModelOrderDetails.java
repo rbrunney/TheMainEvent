@@ -10,25 +10,37 @@ public class ModelOrderDetails {
 
     @Id
     private String _id;
+    private String customerID;
     private boolean isAccepted;
     private String typeOfEvent;
     private String dateOfEvent;
     private String locationOfEvent;
     private int numberOfGuests;
     private float totalCostOfEvent;
-    private ArrayList<ModelMenuItem> menuItems;
+    private ArrayList<String> menuItems;
 
     public ModelOrderDetails() {
 
     }
 
-    public ModelOrderDetails(String typeOfEvent, String dateOfEvent, String locationOfEvent, int numberOfGuests, float totalCostOfEvent, ArrayList<ModelMenuItem> menuItems) {
+    public ModelOrderDetails(String _id, String customerID, boolean isAccepted, String typeOfEvent, String dateOfEvent, String locationOfEvent, int numberOfGuests, float totalCostOfEvent, ArrayList<String> menuItems) {
+        this._id = _id;
+        this.customerID = customerID;
+        this.isAccepted = isAccepted;
         this.typeOfEvent = typeOfEvent;
         this.dateOfEvent = dateOfEvent;
         this.locationOfEvent = locationOfEvent;
         this.numberOfGuests = numberOfGuests;
         this.totalCostOfEvent = totalCostOfEvent;
         this.menuItems = menuItems;
+    }
+
+    public String getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(String customerID) {
+        this.customerID = customerID;
     }
 
     public String get_id() {
@@ -87,11 +99,11 @@ public class ModelOrderDetails {
         this.totalCostOfEvent = totalCostOfEvent;
     }
 
-    public ArrayList<ModelMenuItem> getMenuItems() {
+    public ArrayList<String> getMenuItems() {
         return menuItems;
     }
 
-    public void setMenuItems(ArrayList<ModelMenuItem> menuItems) {
+    public void setMenuItems(ArrayList<String> menuItems) {
         this.menuItems = menuItems;
     }
 }

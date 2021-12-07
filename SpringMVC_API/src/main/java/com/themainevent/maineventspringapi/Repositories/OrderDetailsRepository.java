@@ -14,6 +14,8 @@ public interface OrderDetailsRepository extends MongoRepository<ModelOrderDetail
     @Query("{}")
     List<ModelOrderDetails> findAll();
 
+    ModelOrderDetails findBy_id(String _id);
+
 //    List<ModelOrderDetails> findByName(String name);
 //
 //    void deleteByName(String name);
