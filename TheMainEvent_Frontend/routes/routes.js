@@ -45,7 +45,7 @@ exports.checkAccount = (req, res) => {
                 isAuthenticated: true
             }
             if(req.cookies.path === undefined) {
-              res.redirect('/')  
+                res.redirect('/')  
             } else {
                 res.redirect(req.cookies.path)
             }
