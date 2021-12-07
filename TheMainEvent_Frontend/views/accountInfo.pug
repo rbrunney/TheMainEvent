@@ -22,17 +22,17 @@ html(lang="en")
                 div(id='box2' class='box') 
                     label(for='username' id='username') Username:
                     br
-                    input(type='text' id='username')
+                    p(id='username')
                     br
                     br
                     label(for='email' id='email') Email:
                     br 
-                    input(type='text' id='email')
+                    p(id='email')
                     br
                     br
                     label(for='address' id='address') Address: 
                     br
-                    input(type='text' id='address')
+                    p(id='address')
                     br
                     br
                     button(id='changePassword', onclick='changeVisibility()') Change Password
@@ -56,4 +56,3 @@ html(lang="en")
                     br
         script 
             include ../scripts/account.js
-                
