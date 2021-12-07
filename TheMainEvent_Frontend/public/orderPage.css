@@ -58,6 +58,10 @@ html, body{
     font-size: 17px;
 }
 
+#menuItems {
+    margin-left: 400px;
+}
+
 .menuItem {
     position: relative;
     height: 300px;
@@ -108,4 +112,8 @@ section{
 
 input{
     text-align: center;
+}
+
+#totalCostOfEvent {
+    visibility: hidden;
 }

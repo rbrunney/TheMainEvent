@@ -10,7 +10,6 @@ html(lang="en")
     body
         div(id='container')
             div(id='mainPageBar') 
-                div(id='logo' class='box') Logo Goes Here
                 div(class='menuNav')
                     a(href='/') Home
                     a(href='/order') Book Event
@@ -45,7 +44,7 @@ html(lang="en")
                 br
                 div 
                     h3 Menu Selection 
-                    section
+                    section(id='menuItems' name='menuItems')
                         input(type='checkbox' name='American Picnic' id='American Picnic')
                         label(for='American Picnic')
                             div(class='menuItem')  
@@ -83,9 +82,9 @@ html(lang="en")
                                         ------House Whipped Cream
                                         Choice of 2 Drinks 
                                         ______COST: 13.50_______ 
-                    section
+                    section(id='menuItems' name='menuItems')
                         input(type='checkbox' name='Bacon Steak' id='Bacon Steak')
-                        label(for='Bacon Wrapped Steak')
+                        label(for='Bacon Steak')
                             div(class='menuItem')  
                                 img(class='menuItemPic' src="https://www.smokedmeatsunday.com/wp-content/uploads/2020/01/Smoked-Filet-Mignon-4-1024x683.jpg")
                                 pre(class='menuItemDesc')

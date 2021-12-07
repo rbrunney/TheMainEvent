@@ -28,6 +28,20 @@ html, body{
     max-width: 300px;
 }
 
+.hat {
+    max-width: 150px;
+    max-height: 150px;
+    
+}
+
+.picture {
+    max-width: 175px;
+    max-height: 170px;
+    border: 3px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
 .menuNav {
     background-color: #141414;
     overflow: hidden;
@@ -98,6 +112,24 @@ html, body{
 
 #typeEvents {
     flex: 1;
+}
+
+#typeHeader {
+    font-size: 150%;
+    text-decoration: underline;
+}
+
+#typeList {
+    font-size: 200%;
+}
+
+#notableHeader {
+    font-size: 150%;
+    text-decoration: underline;
+}
+
+#notableList {
+    font-size: 200%;
 }
 
 #foodRows {
@@ -177,6 +209,10 @@ html, body{
 #contactInfo {
     flex: 6;
     height: 100%;
+}
+
+#contactNumber {
+    font-size: 150%;
 }
 
 .fa-facebook {
