@@ -15,29 +15,9 @@ public class BLLOrderDetails {
     @Autowired
     private OrderDetailsRepository orderDetailRepo;
 
-    public String add(ModelOrderDetails orderDetails, String userEmail) {
+    public String add(ModelOrderDetails orderDetails/*, String userEmail*/) {
         try {
             orderDetailRepo.save(orderDetails);
-
-            StringBuilder emailBody = new StringBuilder("<h1 style='text-align: center;'> The Main Event </header>\n" +
-                    "    <h2 style='text-align: center; text-decoration: underline;'> Order Confirmation </h1>\n" +
-                    "    <h3 style='text-align: center; text-decoration: underline;'> Type of Event </h3>\n" +
-                    "    <h5 style='text-align: center;'> " + orderDetails.getTypeOfEvent() + " </h5>\n" +
-                    "    <h3 style='text-align: center; text-decoration: underline;'> Date </h3>\n" +
-                    "    <h5 style='text-align: center;'> " + orderDetails.getDateOfEvent() + " </h5>\n" +
-                    "    <h3 style='text-align: center; text-decoration: underline;'> Location </h3>\n" +
-                    "    <h5 style='text-align: center;'> " + orderDetails.getLocationOfEvent() + " </h5>\n" +
-                    "    <h3 style='text-align: center; text-decoration: underline;'> Number of Guests </h3>\n" +
-                    "    <h5 style='text-align: center;'> Number of Guests: " + orderDetails.getNumberOfGuests() + " </h5>\n" +
-                    "    <h3 style='text-align: center; text-decoration: underline;'> Total Cost </h3>\n" +
-                    "    <h5 style='text-align: center;'> $ " + orderDetails.getTotalCostOfEvent() + " </h5>\n" +
-                    "    <h3 style='text-align: center; text-decoration: underline;'> Menu Items </h3>\n");
-
-            for(ModelMenuItem menuItem : orderDetails.getMenuItems()) {
-                emailBody.append("<h5 style='text-align: center;'> ").append(menuItem.toString()).append(" </h5>\n");
-            }
-
-            new SendMail(userEmail, "Order Confirmation", emailBody.toString());
             return "Order Details has been saved";
         } catch(Exception e) {
             e.printStackTrace();

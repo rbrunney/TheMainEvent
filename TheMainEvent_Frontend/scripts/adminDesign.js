@@ -241,22 +241,25 @@
         var div = createElement('div', 'event');
         var square = createElement('div', 'event-category ' + ev.color);
         var span = createElement('span', '', ev.eventName);
-        var acceptButton = createElement('button', '', 'Accept');
-        var denyButton = createElement('button', '', 'Deny');
-
-        acceptButton.onclick = function () {
-            alert("You just got accepted!");
-            
-        };
-
-        denyButton.onclick = function () {
-            alert("Get Canceled lol");
-        };
-  
         div.appendChild(square);
         div.appendChild(span);
-        span.appendChild(acceptButton);
-        span.appendChild(denyButton);
+
+        if(ev.isAccepted === false) {
+          var acceptButton = createElement('button', '', 'Accept');
+          var denyButton = createElement('button', '', 'Deny');
+
+          acceptButton.onclick = function () {
+              alert("You just got accepted!");
+              
+          };
+
+          denyButton.onclick = function () {
+              alert("Get Canceled lol");
+          };
+          span.appendChild(acceptButton);
+          span.appendChild(denyButton);
+        }
+
         wrapper.appendChild(div);
       });
   
@@ -362,10 +365,20 @@
     request.onload = () => {
         var orders = JSON.parse(request.responseText)
         for(var i = 0; i < orders.length; i++){
-            data.push({eventName: "Type of Event: " + orders[i].typeOfEvent + ", Location: " +
-            orders[i].locationOfEvent +
-            " Number of Guests " + orders[i].numberOfGuests,
-            calendar: 'pending', color: 'yellow', date: orders[i].dateOfEvent})
+          let yellowOrGreen = '';
+          let acceptedOrPending = '';
+          if(orders[i].accepted) {
+            yellowOrGreen = 'green';
+            acceptedOrPending = 'Accepted';
+          } else {
+            yellowOrGreen = 'yellow';
+            acceptedOrPending = 'Pending';
+          }
+          
+          data.push({eventName: "Type of Event: " + orders[i].typeOfEvent + ", Location: " +
+          orders[i].locationOfEvent +
+          " Number of Guests " + orders[i].numberOfGuests,
+          calendar: acceptedOrPending, color: yellowOrGreen, date: orders[i].dateOfEvent, isAccepted: orders[i].accepted})
         }
     
         var calendar = new Calendar('#calendar', data);
