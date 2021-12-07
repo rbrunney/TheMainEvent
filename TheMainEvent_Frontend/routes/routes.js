@@ -89,10 +89,20 @@ exports.addAccount = (req, res) => {
 };
 
 exports.addOrder = (req, res) => {
-    const GrilledChicken = document.getElementById('Grilled Chicken');
-    const AmericanPicnic = document.getElementById('American Picnic');
-    const BaconSteak = document.getElementById('Bacon Steak');
-    const HorDevours = document.getElementById('Hor Devours');
+    let meal = "";
+    
+    if(req.body.HorDevours){
+        meal = 'Hor Devours';
+    } else if(req.body.BaconSteak){
+        meal = 'Bacon Wrapped Steak';
+    } else if(req.body.AmericanPicnic){
+        meal = 'American Picnic';
+    } else if(req.body.GrilledChicken){
+        meal = 'Grilled Chicken';
+    } else {
+        meal = 'TBD';
+    }
+
     let orderDetails = {
         typeOfEvent: req.body.typeOfEvent,
         dateOfEvent: req.body.dateOfEvent,
