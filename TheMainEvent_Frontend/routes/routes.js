@@ -44,7 +44,12 @@ exports.checkAccount = (req, res) => {
             req.session.user = {
                 isAuthenticated: true
             }
-            res.redirect(req.cookies.path)
+            if(req.cookies.path === undefined) {
+                res.redirect('/')  
+            } else {
+                res.redirect(req.cookies.path)
+            }
+            
         } else {
             res.redirect('/signIn')
         }
@@ -66,29 +71,80 @@ exports.addAccount = (req, res) => {
         request.open("POST", "http://localhost:8082/user/add");
         request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         request.send(JSON.stringify(user));
+        request.onload = () => {
+            console.log(request.responseText);
+        }
+
+        const sendEmail = new XMLHttpRequest();
+        sendEmail.open("GET", "http://localhost:8082/email/sendEmailConfirmation/" + req.body.email);
+        sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        sendEmail.send();
+        sendEmail.onload = () => {
+            console.log(sendEmail.responseText);
+        }
         res.redirect('/');
     } else {
         res.redirect('/createAccount');
     }
 };
 
-//STILL WORKING ON IT
 exports.addOrder = (req, res) => {
+    const GrilledChicken = document.getElementById('Grilled Chicken');
+    const AmericanPicnic = document.getElementById('American Picnic');
+    const BaconSteak = document.getElementById('Bacon Steak');
+    const HorDevours = document.getElementById('Hor Devours');
     let orderDetails = {
         typeOfEvent: req.body.typeOfEvent,
         dateOfEvent: req.body.dateOfEvent,
         locationOfEvent: req.body.locationOfEvent,
         numberOfGuests: req.body.numberOfGuests,
         totalCostOfEvent: req.body.totalCostOfEvent,
-        menuItems: req.body.menu
+        menuItems: req.body.menuItems
     }
-    if(req.session.user.isAuthenticated){
-        const request = new XMLHttpRequest();
-        request.open("POST", "http://localhost:8082/orderDetails/add")
-        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        request.send(JSON.stringify(orderDetails));
-        res.redirect('/');
-    }else {
-        res.redirect('/signIn')
+
+    console.log(orderDetails)
+
+    try {
+        if(req.session.user.isAuthenticated){
+            const request = new XMLHttpRequest();
+            request.open("POST", "http://localhost:8082/orderDetails/add")
+            request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            request.send(JSON.stringify(orderDetails));
+            res.redirect('/');
+
+            const sendEmail = new XMLHttpRequest();
+            sendEmail.open("POST", "http://localhost:8082/email/sendOrderPending/" + req.body.email);
+            sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            sendEmail.send(JSON.stringify(orderDetails));
+            sendEmail.onload = () => {
+                console.log(sendEmail.responseText);
+            }
+        } else {
+            res.redirect('/signIn');
+        }
+    } catch(err) {
+        res.cookie('path', '/confirmOrder', {maxAge:60000});
+        res.cookie('orderInfo', orderDetails, {maxAge:60000})
+        res.redirect('/signIn');
     }
+}
+
+exports.confirmOrder = (req, res) => {
+
+    let orderDetails = req.cookies.orderInfo;
+    res.clearCookie('orderInfo');
+
+    const request = new XMLHttpRequest();
+    request.open("POST", "http://localhost:8082/orderDetails/add")
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    request.send(JSON.stringify(orderDetails));
+
+    const sendEmail = new XMLHttpRequest();
+    sendEmail.open("POST", "http://localhost:8082/email/sendOrderPending/" + req.body.email);
+    sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    sendEmail.send(JSON.stringify(orderDetails));
+    sendEmail.onload = () => {
+        console.log(sendEmail.responseText);
+    }
+    res.redirect('/');
 }

@@ -23,8 +23,8 @@ public class OrderDetailsController {
         return "Hello from Order Details";
     }
 
-    @PostMapping(path="/add/{userEmail}")
-    public String add(@RequestBody ModelOrderDetails orderDetails, @PathVariable String userEmail) {
+    @PostMapping(path="/add")
+    public String add(@RequestBody ModelOrderDetails orderDetails) {
         //Testing/Validating values
         System.out.println("[ORDER DETAILS INFO] Date: " + orderDetails.getDateOfEvent());
         System.out.println("[ORDER DETAILS INFO] Location: " + orderDetails.getLocationOfEvent());
@@ -32,7 +32,7 @@ public class OrderDetailsController {
         System.out.println("[ORDER DETAILS INFO] Total Cost: " + orderDetails.getTotalCostOfEvent());
         System.out.println("[ORDER DETAILS INFO] Menu Items: " + orderDetails.getMenuItems());
 
-        return bllOrderDetails.add(orderDetails, userEmail);
+        return bllOrderDetails.add(orderDetails);
     }
 
     @GetMapping(path = "/findAll")
