@@ -50,4 +50,12 @@ public class OrderDetailsController {
                 "Origin, X-Requested-With, Content-type: application/json, Accept:*");
         return bllOrderDetails.findById(id);
     }
+
+    @PutMapping(path="/updateOrderDetails")
+    public String updateOrderDetails(HttpServletResponse response, @RequestBody ModelOrderDetails orderDetails) {
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Headers",
+                "Origin, X-Requested-With, Content-type: application/json, Accept:*");
+        return bllOrderDetails.updateOrderDetails(orderDetails);
+    }
 }

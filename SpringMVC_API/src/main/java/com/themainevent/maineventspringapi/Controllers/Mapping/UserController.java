@@ -3,6 +3,7 @@ package com.themainevent.maineventspringapi.Controllers.Mapping;
 import com.themainevent.maineventspringapi.Controllers.BusinessLogicLayer.BLLUser;
 import com.themainevent.maineventspringapi.Models.ModelUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +33,7 @@ public class UserController {
     }
 
     @GetMapping(path="/checkUser/{username}")
-    public String checkUsers(@PathVariable String username) {
+    public ModelUser checkUsers(@PathVariable String username) {
         return bllUser.checkUsers(username);
     }
 

@@ -27,12 +27,12 @@ public class BLLUser {
         return "User could not be saved";
     }
 
-    public String checkUsers(String username) {
+    public ModelUser checkUsers(String username) {
         try {
-            return userRepo.findByUsername(username).getPassword();
+            return userRepo.findByUsername(username);
         } catch(Exception e) {
             e.printStackTrace();
-            return "Failed";
+            return new ModelUser();
         }
     }
 

@@ -51,7 +51,7 @@ public class Security extends WebSecurityConfigurerAdapter  {
                 .antMatchers("/order/search/{name}").hasRole("admin")
                 .antMatchers("/orderDetails/add").permitAll()
                 .antMatchers("/orderDetails/delete/{name}").hasRole("admin")
-                .antMatchers("/orderDetails/update/{oldName}/{newName}").hasRole("admin")
+                .antMatchers("/orderDetails/update/**").permitAll()
                 .antMatchers("/orderDetails/search/{name}").hasRole("admin")
                 .antMatchers("/user/add").permitAll()
                 .antMatchers("/user/checkUser/**").permitAll()

@@ -10,11 +10,15 @@ exports.admin = (req, res) => {
 }
 
 exports.orderPage = (req, res) => {
-    res.render('orderPage');
+    res.render('orderPage', {
+        user: req.session.user
+    });
 };
 
 exports.accountInfo = (req, res) => {
-    res.render('accountInfo');
+    res.render('accountInfo', {
+        user: req.session.user
+    });
 };
 
 exports.freezerMeals = (req, res) => {
@@ -37,17 +41,24 @@ exports.createAccount = (req, res) => {
 // That way we can then allow them to log into the site
 exports.checkAccount = (req, res) => {
     const request = new XMLHttpRequest();
-    request.open("GET", `http://localhost:8082/user/checkUser/${req.body.username}`);
+    request.open("GET", `http://mainevent-api.ngrok.io/user/checkUser/${req.body.username}`);
     request.send();
     request.onload = () => {
-        if (bcrypt.compareSync(req.body.password, request.responseText)) {
+        userInfo = JSON.parse(request.responseText)
+        if (bcrypt.compareSync(req.body.password, userInfo.password)) {
+
             req.session.user = {
-                isAuthenticated: true
+                isAuthenticated: true,
+                name: userInfo.fname,
+                username: userInfo.username,
+                email: userInfo.email,
+                phone: userInfo.phone
             }
+
             if(req.cookies.path === undefined) {
-                res.redirect('/')  
+                res.redirect('/');  
             } else {
-                res.redirect(req.cookies.path)
+                res.redirect(req.cookies.path);
             }
             
         } else {
@@ -62,13 +73,13 @@ exports.addAccount = (req, res) => {
             fname: req.body.fname,
             lname: req.body.lname,
             email: req.body.email,
-            phone: bcrypt.hashSync(req.body.phone, bcrypt.genSaltSync(10)),
+            phone: req.body.phone,
             username: req.body.username,
             password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)),
         }
         // Need to call REST API here so we can add their information to the Database
         const request = new XMLHttpRequest();
-        request.open("POST", "http://localhost:8082/user/add");
+        request.open("POST", "http://mainevent-api.ngrok.io/user/add");
         request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         request.send(JSON.stringify(user));
         request.onload = () => {
@@ -76,13 +87,13 @@ exports.addAccount = (req, res) => {
         }
 
         const sendEmail = new XMLHttpRequest();
-        sendEmail.open("GET", "http://localhost:8082/email/sendEmailConfirmation/" + req.body.email);
+        sendEmail.open("GET", "http://mainevent-api.ngrok.io/email/sendEmailConfirmation/" + req.body.email);
         sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         sendEmail.send();
         sendEmail.onload = () => {
             console.log(sendEmail.responseText);
         }
-        res.redirect('/');
+        res.redirect('/signIn');
     } else {
         res.redirect('/createAccount');
     }
@@ -117,18 +128,20 @@ exports.addOrder = (req, res) => {
     try {
         if(req.session.user.isAuthenticated){
             const request = new XMLHttpRequest();
-            request.open("POST", "http://localhost:8082/orderDetails/add")
+            request.open("POST", "http://mainevent-api.ngrok.io/orderDetails/add")
             request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             request.send(JSON.stringify(orderDetails));
-            res.redirect('/');
 
             const sendEmail = new XMLHttpRequest();
-            sendEmail.open("POST", "http://localhost:8082/email/sendOrderPending/" + req.body.email);
+            sendEmail.open("POST", "http://mainevent-api.ngrok.io/email/sendOrderPending/" + req.session.user.email);
             sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             sendEmail.send(JSON.stringify(orderDetails));
             sendEmail.onload = () => {
                 console.log(sendEmail.responseText);
             }
+
+            res.redirect('/');
+
         } else {
             res.redirect('/signIn');
         }
@@ -145,16 +158,18 @@ exports.confirmOrder = (req, res) => {
     res.clearCookie('orderInfo');
 
     const request = new XMLHttpRequest();
-    request.open("POST", "http://localhost:8082/orderDetails/add")
+    request.open("POST", "http://mainevent-api.ngrok.io/orderDetails/add")
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.send(JSON.stringify(orderDetails));
 
-    // const sendEmail = new XMLHttpRequest();
-    // sendEmail.open("POST", "http://localhost:8082/email/sendOrderPending/" + req.body.email);
-    // sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    // sendEmail.send(JSON.stringify(orderDetails));
-    // sendEmail.onload = () => {
-    //     console.log(sendEmail.responseText);
-    // }
-    res.redirect('/');
+    const sendEmail = new XMLHttpRequest();
+    sendEmail.open("POST", "http://mainevent-api.ngrok.io/email/sendOrderPending/" + req.session.user.email);
+    sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    sendEmail.send(JSON.stringify(orderDetails));
+    sendEmail.onload = () => {
+        console.log(sendEmail.responseText);
+
+        res.redirect('/');
+    }
+
 }

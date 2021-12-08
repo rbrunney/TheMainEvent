@@ -15,7 +15,7 @@ public class BLLOrderDetails {
     @Autowired
     private OrderDetailsRepository orderDetailRepo;
 
-    public String add(ModelOrderDetails orderDetails/*, String userEmail*/) {
+    public String add(ModelOrderDetails orderDetails) {
         try {
             orderDetailRepo.save(orderDetails);
             return "Order Details has been saved";
@@ -43,6 +43,16 @@ public class BLLOrderDetails {
         } catch(Exception e) {
             e.printStackTrace();
             return new ModelOrderDetails();
+        }
+    }
+
+    public String updateOrderDetails(ModelOrderDetails orderDetails) {
+        try {
+            orderDetailRepo.save(orderDetails);
+            return "OrderDetail Updated";
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "Could not be updated!";
         }
     }
 }

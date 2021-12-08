@@ -13,7 +13,7 @@ html(lang="en")
                 a(href='/order') Book Event
                 a(href='/account') Account
             div(class='signIn')
-                a(href='/signIn') Sign-In
+                a(href='/signIn') #{user.fname}
         br 
         fieldset 
             h2(id='createProfileHeader') Account Info 
@@ -22,17 +22,17 @@ html(lang="en")
                 div(id='box2' class='box') 
                     label(for='username' id='username') Username:
                     br
-                    p(id='username')
+                    p(id='username') #{user.username}
                     br
                     br
                     label(for='email' id='email') Email:
                     br 
-                    p(id='email')
+                    p(id='email') #{user.email}
                     br
                     br
-                    label(for='address' id='address') Address: 
+                    label(for='phone' id='phone') Phone: 
                     br
-                    p(id='address')
+                    p(id='phone') #{user.phone}
                     br
                     br
                     button(id='changePassword', onclick='changeVisibility()') Change Password
