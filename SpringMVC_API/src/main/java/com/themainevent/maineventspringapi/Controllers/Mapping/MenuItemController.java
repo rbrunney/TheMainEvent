@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/menuItem")
+@CrossOrigin(origins = "https://themainevent.ngrok.io")
 public class MenuItemController {
 
     @Autowired

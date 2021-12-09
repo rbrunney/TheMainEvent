@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/inventory")
+@CrossOrigin(origins = "https://themainevent.ngrok.io")
 public class InventoryController {
 
     @Autowired
