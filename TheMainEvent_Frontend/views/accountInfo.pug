@@ -15,42 +15,46 @@ html(lang="en")
             div(class='signIn')
                 a(href='/signIn') #{user.fname}
         br 
-        fieldset 
+        fieldset(class='fieldset')
             h2(id='createProfileHeader') Account Info 
             div(id='container')
-                div(id='box1' class='box')
-                div(id='box2' class='box') 
-                    label(for='userUsername' id='username') Username:
-                    br
-                    p(id='userUsername') #{user.username}
-                    br
-                    br
-                    label(for='userEmail' id='email') Email:
-                    br 
-                    p(id='userEmail') #{user.email}
-                    br
-                    br
-                    label(for='userPhone' id='phone') Phone: 
-                    br
-                    p(id='userPhone') #{user.phone}
-                    br
-                    br
-                a(href="#box3") Change Password
-                div(id='box3', class='passwordDiv')
-                    label(for='password' id='password') Password: 
-                    br
-                    input(type='password' id='password')
+                form(id='form' method='post' action=('/updateAccount'))
+                    div(id='box1' class='box')
+                    div(id='box2' class='box') 
+                        label(for='userUsername' id='username') Username:
+                        br
+                        input(type='text' name='userUsername' placeholder='Current: ' + user.username)
+                        br
+                        br
+                        label(for='userEmail' id='email') Email:
+                        br 
+                        input(type='text' name='userEmail' placeholder='Current: ' + user.email)
+                        br
+                        br
+                        label(for='userPhone' id='phone') Phone: 
+                        br
+                        input(type='text' name='userPhone' placeholder='Current: ' + user.phone)
+                        br
+                        br
+                    a(href="#box3") Change Password
                     br
                     br
-                    label(for='newPassword' id='newPassword') New Password:
-                    br 
-                    input(type='password' id='newPassword')
-                    br
-                    br
-                    label(for='confirmPassword' id='confirmPassword') Confirm Password:
-                    br 
-                    input(type='password' id='confirmPassword')
-                    br
-                    br
+                    div(id='box3', class='box3')
+                        label(for='password' id='password') Current Password: 
+                        br
+                        input(type='text' name='password')
+                        br
+                        br
+                        label(for='newPassword' id='newPassword') New Password:
+                        br 
+                        input(type='text' name='newPassword')
+                        br
+                        br
+                        label(for='confirmPassword' id='confirmPassword') Confirm Password:
+                        br 
+                        input(type='text' name='confirmPassword')
+                        br
+                        br
+                        input(type='submit' value='Update User' id='updateUser')
         script 
             include ../scripts/account.js

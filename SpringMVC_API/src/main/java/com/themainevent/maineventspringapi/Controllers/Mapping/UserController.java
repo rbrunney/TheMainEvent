@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.nio.file.Path;
 
 @RestController
 @RequestMapping(path="/user")
@@ -30,6 +31,12 @@ public class UserController {
         System.out.println("[USER INFO] user: " + user.getUsername());
         System.out.println("[USER INFO] password: " + user.getPassword());
         return bllUser.addUser(user);
+    }
+
+    @PatchMapping(path="/edit/{ID}")
+    public ModelUser edit(@RequestBody ModelUser user, @PathVariable String ID) {
+        //Testing/validating Values
+        return bllUser.editUser(ID, user);
     }
 
     @GetMapping(path="/checkUser/{username}")

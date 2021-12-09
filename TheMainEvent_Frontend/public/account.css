@@ -14,7 +14,7 @@ html, body{
     height: 7%;
 }
 
-fieldset {
+.fieldset {
     background-color: #e3e3e3;
     display: block;
     margin-right: 2px;
@@ -26,7 +26,7 @@ fieldset {
     padding-right: 0.75em;
     border: 2px solid black;
     width: 600px;
-    height: 600px;
+    height: 700px;
     border-radius: 10px;
 }
 
@@ -130,4 +130,8 @@ fieldset {
 #password{
     text-align: center;
     text-decoration: underline;
+}
+
+input{
+    text-align: center;
 }

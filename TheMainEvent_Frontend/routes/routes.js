@@ -21,6 +21,25 @@ exports.accountInfo = (req, res) => {
     });
 };
 
+exports.updateAccount = (req, res) => {
+    // console.log(req.body.newPassword + ' ' + req.body.confirmPassword);
+    let user = {
+        email: req.body.userEmail,
+        phone: req.body.userPhone,
+        username: req.body.userUsername,
+        // password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)),
+        password: req.body.newPassword
+    }
+    console.log(req.session.user.customerID);
+    const request = new XMLHttpRequest();
+    request.open("PATCH", `http://localhost:8082/user/edit/${req.session.user.customerID}}`);
+    console.log(JSON.stringify(user));
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    request.send(JSON.stringify(user));
+    res.redirect('/');
+
+}
+
 exports.freezerMeals = (req, res) => {
     res.render('freezerMeals')
 };

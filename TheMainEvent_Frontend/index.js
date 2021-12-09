@@ -57,5 +57,6 @@ app.post('/addOrder', urlencoderParser, routes.addOrder);
 app.get('/confirmOrder', routes.confirmOrder);
 app.get('/account', checkAuthAccount, routes.accountInfo);
 app.get('/meals', routes.freezerMeals);
+app.post('/updateAccount', urlencoderParser, routes.updateAccount);
 
 app.listen(3000);

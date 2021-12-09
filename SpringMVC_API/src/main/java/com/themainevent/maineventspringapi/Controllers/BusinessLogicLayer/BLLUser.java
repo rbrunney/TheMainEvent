@@ -46,4 +46,18 @@ public class BLLUser {
         }
     }
 
+    public ModelUser getUser(String _id){
+        return userRepo.findBy_id(_id);
+    }
+
+    public ModelUser editUser(String id, ModelUser user){
+        ModelUser temp = userRepo.queryByID(id);
+        System.out.println(temp.toString());
+        temp.setEmail(user.getEmail());
+        temp.setUsername(user.getUsername());
+        temp.setPhone(user.getPhone());
+        temp.setPassword(user.getPassword());
+        return userRepo.save(temp);
+    }
+
 }
