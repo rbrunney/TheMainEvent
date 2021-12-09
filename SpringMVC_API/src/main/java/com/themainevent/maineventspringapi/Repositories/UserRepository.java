@@ -17,6 +17,6 @@ public interface UserRepository extends MongoRepository<ModelUser, String> {
 //    ModelUser findFirstByName(String name);
 //
 //    void deleteByName(String name);
-    @Query("{'_id': ObjectId(?1)}")
-    ModelUser queryByID(String ID);
+//    @Query("{'_id': ObjectId(?1)}")
+//    ModelUser queryByID(String ID);
 }
