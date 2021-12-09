@@ -51,13 +51,20 @@ public class BLLUser {
     }
 
     public ModelUser editUser(String id, ModelUser user){
-        ModelUser temp = userRepo.queryByID(id);
-        System.out.println(temp.toString());
-        temp.setEmail(user.getEmail());
-        temp.setUsername(user.getUsername());
-        temp.setPhone(user.getPhone());
-        temp.setPassword(user.getPassword());
-        return userRepo.save(temp);
+        try {
+            System.out.println(id);
+            System.out.println(userRepo.findBy_id(id).getEmail());
+            ModelUser temp = userRepo.findBy_id(id);
+            temp.setEmail(user.getEmail());
+            temp.setUsername(user.getUsername());
+            temp.setPhone(user.getPhone());
+            temp.setPassword(user.getPassword());
+            return userRepo.save(temp);
+        } catch(Exception e) {
+            e.printStackTrace();
+            return new ModelUser();
+        }
+
     }
 
 }

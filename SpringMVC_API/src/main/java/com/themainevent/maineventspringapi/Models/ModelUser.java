@@ -14,7 +14,7 @@ public class ModelUser {
 
     }
 
-    public ModelUser(String fname, String lname, String phone, String email, String customerID, String username, String password) {
+    public ModelUser(String fname, String lname, String phone, String email, String username, String password) {
         this.fname = fname;
         this.lname = lname;
         this.phone = phone;
