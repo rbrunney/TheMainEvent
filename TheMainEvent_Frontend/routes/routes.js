@@ -147,6 +147,7 @@ exports.addOrder = (req, res) => {
 
     try {
         if(req.session.user.isAuthenticated){
+            orderDetails['customerID'] = req.session.user.customerID
             const request = new XMLHttpRequest();
             request.open("POST", "http://localhost:8082/orderDetails/add")
             request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");

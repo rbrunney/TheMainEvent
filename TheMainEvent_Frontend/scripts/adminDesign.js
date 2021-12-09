@@ -254,19 +254,19 @@
             alert("You just got accepted!");
             
             const request = new XMLHttpRequest();
-            request.open("GET", 'http://localhost:8082/user/getUserEmail/' + ev.customerID); // Read All Order Details
+            request.open("GET", 'http://mainevent-api.ngrok.io/user/getUserEmail/' + ev.customerID); // Read All Order Details
             request.send();
             request.onload = () => {
               email = request.responseText;
               console.log(email);
               const requestOrderDetails = new XMLHttpRequest();
-                requestOrderDetails.open("GET", 'http://localhost:8082/orderDetails/getOrderDetailById/' + ev.orderId); // Read Order Detail by id
+                requestOrderDetails.open("GET", 'http://mainevent-api.ngrok.io/orderDetails/getOrderDetailById/' + ev.orderId); // Read Order Detail by id
                 requestOrderDetails.send();
                 requestOrderDetails.onload = () => {
                   console.log(email);
                   orderDetails = requestOrderDetails.responseText;
                   const requestOrderConfirmation = new XMLHttpRequest();
-                  requestOrderConfirmation.open("POST", 'http://localhost:8082/email/sendOrderConfirmation/' + email); // Read Order Confirmation
+                  requestOrderConfirmation.open("POST", 'http://mainevent-api.ngrok.io/email/sendOrderConfirmation/' + email); // Read Order Confirmation
                   requestOrderConfirmation.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                   requestOrderConfirmation.send(orderDetails);
                   requestOrderConfirmation.onload = () => {
@@ -284,20 +284,20 @@
           denyButton.onclick = function () {
               alert("Get Canceled lol");
               const request = new XMLHttpRequest();
-              request.open("GET", 'http://localhost:8082/user/getUserEmail/' + ev.customerID); // Read All Order Details
+              request.open("GET", 'http://mainevent-api.ngrok.io/user/getUserEmail/' + ev.customerID); // Read All Order Details
               request.send();
               request.onload = () => {
                 email = request.responseText;
                 console.log(email);
                 const requestOrderDetails = new XMLHttpRequest();
-                  requestOrderDetails.open("GET", 'http://localhost:8082/orderDetails/getOrderDetailById/' + ev.orderId); // Read Order Detail by id
+                  requestOrderDetails.open("GET", 'http://mainevent-api.ngrok.io/orderDetails/getOrderDetailById/' + ev.orderId); // Read Order Detail by id
                   requestOrderDetails.send();
                   requestOrderDetails.onload = () => {
                     orderDetails = requestOrderDetails.responseText;
                     console.log(orderDetails);
                     console.log(email);
                     const requestOrderConfirmation = new XMLHttpRequest();
-                    requestOrderConfirmation.open("GET", 'http://localhost:8082/email/sendOrderDenied/' + email); // Read Order Confirmation
+                    requestOrderConfirmation.open("GET", 'http://mainevent-api.ngrok.io/email/sendOrderDenied/' + email); // Read Order Confirmation
                     requestOrderConfirmation.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                     requestOrderConfirmation.send(orderDetails);
               }
@@ -407,7 +407,7 @@
         //   { eventName: 'Startup Weekend', calendar: 'Other', color: 'green', date: '2014-03-17' }
         ];
     const request = new XMLHttpRequest();
-    request.open("GET", 'http://localhost:8082/orderDetails/findAll'); // Read All Order Details
+    request.open("GET", 'http://mainevent-api.ngrok.io/orderDetails/findAll'); // Read All Order Details
     request.send();
     request.onload = () => {
         var orders = JSON.parse(request.responseText)
