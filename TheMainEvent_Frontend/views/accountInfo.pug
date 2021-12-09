@@ -12,10 +12,11 @@ html(lang="en")
                 a(href='/') Home
                 a(href='/order') Book Event
                 a(href='/account') Account
-            div(class='logout')    
-                a(href='/logout') Log Out 
             div(class='signIn')
-                a(href='/signIn') #{user.fname}
+                if(user.isAuthenticated)
+                    a(href='/logout' id='logout') Log Out 
+                else 
+                    a(href='/signIn' id='signin') Sign-In
         br 
         fieldset(class='fieldset')
             h2(id='createProfileHeader') Account Info 

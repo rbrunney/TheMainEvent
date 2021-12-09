@@ -2,7 +2,17 @@ const bcrypt = require('bcryptjs');
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 exports.index = (req, res) => {
-    res.render('index');
+    if(req.session.user === undefined){
+        res.render('index', {
+            user: {
+                isAuthenticated: false
+            }
+        });
+    }else {
+        res.render('index', {
+            user: req.session.user
+        });
+    }    
 };
 
 exports.admin = (req, res) => {
@@ -10,27 +20,31 @@ exports.admin = (req, res) => {
 }
 
 exports.orderPage = (req, res) => {
-    try{
+    if(req.session.user === undefined){
         res.render('orderPage', {
-            user: req.session.user = {
+            user: {
                 isAuthenticated: false
             }
         });
-    }catch(err){
-        
-    }
-    // finally {
-    //     res.render('orderPage', {
-    //         user: req.session.user
-    //     });
-    // }
-    
+    }else {
+        res.render('orderPage', {
+            user: req.session.user
+        });
+    }    
 };
 
 exports.accountInfo = (req, res) => {
-    res.render('accountInfo', {
-        user: req.session.user
-    });
+    if(req.session.user === undefined){
+        res.render('accountInfo', {
+            user: {
+                isAuthenticated: false
+            }
+        });
+    }else {
+        res.render('accountInfo', {
+            user: req.session.user
+        });
+    }    
 };
 
 exports.updateAccount = (req, res) => {
