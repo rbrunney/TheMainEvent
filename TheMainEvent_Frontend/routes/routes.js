@@ -49,6 +49,7 @@ exports.checkAccount = (req, res) => {
 
             req.session.user = {
                 isAuthenticated: true,
+                customerID: userInfo._id,
                 name: userInfo.fname,
                 username: userInfo.username,
                 email: userInfo.email,
@@ -155,6 +156,7 @@ exports.addOrder = (req, res) => {
 exports.confirmOrder = (req, res) => {
 
     let orderDetails = req.cookies.orderInfo;
+    orderDetails['customerID'] = req.session.user.customerID
     res.clearCookie('orderInfo');
 
     const request = new XMLHttpRequest();
