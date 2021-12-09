@@ -37,26 +37,17 @@ public class OrderDetailsController {
     }
 
     @GetMapping(path = "/findAll")
-    public List<ModelOrderDetails> findAll(HttpServletResponse response){
-        response.addHeader("Access-Control-Allow-Origin", "*");
-        response.addHeader("Access-Control-Allow-Headers",
-                "Origin, X-Requested-With, Context-Type, Accept*");
+    public List<ModelOrderDetails> findAll(){
         return bllOrderDetails.findAllOrders();
     }
 
     @GetMapping(path = "/getOrderDetailById/{id}")
-    public ModelOrderDetails findOrderById(HttpServletResponse response, @PathVariable String id){
-        response.addHeader("Access-Control-Allow-Origin", "*");
-        response.addHeader("Access-Control-Allow-Headers",
-                "Origin, X-Requested-With, Content-type: application/json, Accept:*");
+    public ModelOrderDetails findOrderById(@PathVariable String id){
         return bllOrderDetails.findById(id);
     }
 
     @PutMapping(path="/updateOrderDetails")
-    public String updateOrderDetails(HttpServletResponse response, @RequestBody ModelOrderDetails orderDetails) {
-        response.addHeader("Access-Control-Allow-Origin", "*");
-        response.addHeader("Access-Control-Allow-Headers",
-                "Origin, X-Requested-With, Content-type: application/json, Accept:*");
+    public String updateOrderDetails(@RequestBody ModelOrderDetails orderDetails) {
         return bllOrderDetails.updateOrderDetails(orderDetails);
     }
 }
