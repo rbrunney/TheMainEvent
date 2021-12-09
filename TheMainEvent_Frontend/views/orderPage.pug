@@ -13,9 +13,12 @@ html(lang="en")
                 div(class='menuNav')
                     a(href='/') Home
                     a(href='/order') Book Event
-                    a(href='/account') Account
+                    a(href='/account') Account 
                 div(class='signIn')
-                    a(href='/signIn') Sign-In
+                    if(user.isAuthenticated)
+                        a(href='/logout' id='logout') Log Out 
+                    else 
+                        a(href='/signIn' id='signin') Sign-In                       
             h2 Order Information 
             form(action='/addOrder' method='post')
                 div(name ='typeOfEvent')

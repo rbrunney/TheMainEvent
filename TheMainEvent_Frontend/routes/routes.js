@@ -10,9 +10,21 @@ exports.admin = (req, res) => {
 }
 
 exports.orderPage = (req, res) => {
-    res.render('orderPage', {
-        user: req.session.user
-    });
+    try{
+        res.render('orderPage', {
+            user: req.session.user = {
+                isAuthenticated: false
+            }
+        });
+    }catch(err){
+        
+    }
+    // finally {
+    //     res.render('orderPage', {
+    //         user: req.session.user
+    //     });
+    // }
+    
 };
 
 exports.accountInfo = (req, res) => {
