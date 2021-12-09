@@ -11,6 +11,7 @@ import java.nio.file.Path;
 
 @RestController
 @RequestMapping(path="/user")
+@CrossOrigin(origins = "https://themainevent.ngrok.io")
 public class UserController {
     @Autowired
     private BLLUser bllUser;
@@ -45,10 +46,7 @@ public class UserController {
     }
 
     @GetMapping(path = "/getUserEmail/{id}")
-    public String getEmail(HttpServletResponse response, @PathVariable String id){
-        response.addHeader("Access-Control-Allow-Origin", "*");
-        response.addHeader("Access-Control-Allow-Headers",
-                "Origin, X-Requested-With, Content-type: application/json, Accept:*");
+    public String getEmail(@PathVariable String id){
         return bllUser.getEmailById(id);
     }
 

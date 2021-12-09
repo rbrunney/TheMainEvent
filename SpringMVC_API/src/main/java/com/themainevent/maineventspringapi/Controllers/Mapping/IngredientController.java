@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/ingredient")
+@CrossOrigin(origins = "https://themainevent.ngrok.io")
 public class IngredientController {
     @Autowired
     private BLLIngredient bllIngredient;
