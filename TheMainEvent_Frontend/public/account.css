@@ -94,6 +94,7 @@ fieldset {
 
 #changePassword{
     align-self: center;
+    display: none;
 }
 
 #container{
