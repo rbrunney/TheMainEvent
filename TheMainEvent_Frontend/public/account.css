@@ -68,6 +68,10 @@ html, body{
     font-size: 17px;
 }
 
+.logout a{
+    float: right;
+}
+
 #createProfileHeader{
     text-align: center;
 }

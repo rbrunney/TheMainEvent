@@ -58,5 +58,14 @@ app.get('/confirmOrder', routes.confirmOrder);
 app.get('/account', checkAuthAccount, routes.accountInfo);
 app.get('/meals', routes.freezerMeals);
 app.post('/updateAccount', urlencoderParser, routes.updateAccount);
+app.get("/logout", (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect("/");
+        }
+    });
+});
 
 app.listen(3000);
