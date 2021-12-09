@@ -50,4 +50,9 @@ public class OrderDetailsController {
     public String updateOrderDetails(@RequestBody ModelOrderDetails orderDetails) {
         return bllOrderDetails.updateOrderDetails(orderDetails);
     }
+
+    @DeleteMapping(path="/deleteOrderDetails")
+    public String deleteOrderDetails(@RequestBody ModelOrderDetails orderDetails) {
+        return bllOrderDetails.deleteOrderDetails(orderDetails);
+    }
 }

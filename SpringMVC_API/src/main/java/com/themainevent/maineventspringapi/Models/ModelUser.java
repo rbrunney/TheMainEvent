@@ -8,19 +8,20 @@ public class ModelUser {
 
     @Id
     private String _id;
-    private String fname, lname, phone, email, username, password;
+    private String fname, lname, phone, email, username, password, role;
 
     public ModelUser() {
 
     }
 
-    public ModelUser(String fname, String lname, String phone, String email, String username, String password) {
+    public ModelUser(String fname, String lname, String phone, String email, String username, String password, String role) {
         this.fname = fname;
         this.lname = lname;
         this.phone = phone;
         this.email = email;
         this.username = username;
         this.password = password;
+        this.role = role;
     }
 
     public String get_id() {
@@ -77,5 +78,13 @@ public class ModelUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

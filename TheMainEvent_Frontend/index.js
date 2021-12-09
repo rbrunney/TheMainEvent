@@ -41,13 +41,23 @@ const checkAuthOrder = (req, res, next) => {
     }
 };
 
+const checkAuthAdmin = (req, res, next) => {
+    if(req.session.user && req.session.user.isAuthenticated && req.session.user.role === 'admin') {
+        res.clearCookie('path');
+        next();
+    } else {
+        res.cookie('path', '/eventCalendar', {maxAge:60000});
+        res.redirect('/signIn');
+    }
+};
+
 const urlencoderParser = express.urlencoded({
     extended: false
 });
 
 app.get('/', routes.index);
 app.post('/', routes.index);
-app.get('/adminDesign', routes.admin);
+app.get('/eventCalendar', checkAuthAdmin, routes.admin);
 app.get('/signIn', routes.signIn);
 app.post('/checkAccount', urlencoderParser, routes.checkAccount);
 app.get('/createAccount', routes.createAccount);

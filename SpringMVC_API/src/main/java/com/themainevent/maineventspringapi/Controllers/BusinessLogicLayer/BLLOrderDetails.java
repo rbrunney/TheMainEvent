@@ -55,4 +55,14 @@ public class BLLOrderDetails {
             return "Could not be updated!";
         }
     }
+
+    public String deleteOrderDetails(ModelOrderDetails orderDetails) {
+        try {
+            orderDetailRepo.delete(orderDetails);
+            return "Order has been deleted";
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "Order Details Could not be Deleted";
+        }
+    }
 }

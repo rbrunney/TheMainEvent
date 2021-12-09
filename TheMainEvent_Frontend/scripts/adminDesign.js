@@ -270,12 +270,13 @@
                   requestOrderConfirmation.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                   requestOrderConfirmation.send(orderDetails);
                   requestOrderConfirmation.onload = () => {
-                    // check = JSON.parse(requestOrderDetails.responseText)
-                    // check.accepted = true;
-                    // const requestUpdateOrder = new XMLHttpRequest();
-                    // requestUpdateOrder.open("PUT", 'http://localhost:8082/orderDetails/updateOrderDetails'); // Update Order Confirmation
-                    // requestUpdateOrder.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-                    // requestUpdateOrder.send(JSON.stringify(check));
+                    check = JSON.parse(requestOrderDetails.responseText)
+                    check.accepted = true;
+                    const requestUpdateOrder = new XMLHttpRequest();
+                    requestUpdateOrder.open("PUT", 'https://mainevent-api.ngrok.io/orderDetails/updateOrderDetails'); // Update Order Confirmation
+                    requestUpdateOrder.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                    requestUpdateOrder.send(JSON.stringify(check));
+                    location.reload();
                   }
               }
             }             
@@ -300,6 +301,13 @@
                     requestOrderConfirmation.open("GET", 'https://mainevent-api.ngrok.io/email/sendOrderDenied/' + email); // Read Order Confirmation
                     requestOrderConfirmation.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                     requestOrderConfirmation.send(orderDetails);
+                    requestOrderConfirmation.onload = () => {
+                      const requestUpdateOrder = new XMLHttpRequest();
+                      requestUpdateOrder.open("DELETE", 'https://mainevent-api.ngrok.io/orderDetails/deleteOrderDetails'); // Update Order Confirmation
+                      requestUpdateOrder.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                      requestUpdateOrder.send(orderDetails);
+                      location.reload();
+                    }
               }
             }
           };
@@ -385,27 +393,7 @@
   }();
   
   !function(req, res) {
-    var data = [
-        //   { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange', date: '2021-12-08' }
-        //   { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange', date: '2021-03-08' },
-        //   { eventName: 'Demo New App to the Board', calendar: 'Work', color: 'orange', date: '2014-02-13' },
-        //   { eventName: 'Dinner w/ Marketing', calendar: 'Work', color: 'orange', date: '2014-02-19' },
-      
-        //   { eventName: 'Game vs Portalnd', calendar: 'Sports', color: 'blue', date: '2014-02-28' },
-        //   { eventName: 'Game vs Houston', calendar: 'Sports', color: 'blue', date: '2014-03-19' },
-        //   { eventName: 'Game vs Denver', calendar: 'Sports', color: 'blue', date: '2014-02-04' },
-        //   { eventName: 'Game vs San Degio', calendar: 'Sports', color: 'blue', date: '2014-02-01' },
-      
-        //   { eventName: 'School Play', calendar: 'Kids', color: 'yellow', date: '2014-02-25' },
-        //   { eventName: 'Parent/Teacher Conference', calendar: 'Kids', color: 'yellow', date: '2014-02-19' },
-        //   { eventName: 'Pick up from Soccer Practice', calendar: 'Kids', color: 'yellow', date: '2014-03-31' },
-        //   { eventName: 'Ice Cream Night', calendar: 'Kids', color: 'yellow', date: '2014-02-20' },
-      
-        //   { eventName: 'Free Tamale Night', calendar: 'Other', color: 'green', date: '2014-02-08' },
-        //   { eventName: 'Bowling Team', calendar: 'Other', color: 'green', date: '2014-02-10' },
-        //   { eventName: 'Teach Kids to Code', calendar: 'Other', color: 'green', date: '2014-03-04' },
-        //   { eventName: 'Startup Weekend', calendar: 'Other', color: 'green', date: '2014-03-17' }
-        ];
+    var data = [];
     const request = new XMLHttpRequest();
     request.open("GET", 'https://mainevent-api.ngrok.io/orderDetails/findAll'); // Read All Order Details
     request.send();
