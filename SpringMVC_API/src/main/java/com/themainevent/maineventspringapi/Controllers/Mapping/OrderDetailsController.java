@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path="/orderDetails")
+@CrossOrigin(origins = "https://themainevent.ngrok.io")
 public class OrderDetailsController {
 
     @Autowired

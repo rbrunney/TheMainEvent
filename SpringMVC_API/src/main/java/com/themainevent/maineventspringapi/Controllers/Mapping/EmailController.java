@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping(path="/email")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://themainevent.ngrok.io")
 public class EmailController {
     @Autowired
     private BLLSendEmail bllEmail;
@@ -20,7 +20,7 @@ public class EmailController {
     }
 
     @PostMapping(path="/sendOrderConfirmation/{userEmail}")
-    public String sendOrderConfirmation(HttpServletResponse response, @RequestBody ModelOrderDetails order, @PathVariable String userEmail) {
+    public String sendOrderConfirmation(@RequestBody ModelOrderDetails order, @PathVariable String userEmail) {
         return bllEmail.orderConfirmationEmail(order, userEmail);
     }
 
