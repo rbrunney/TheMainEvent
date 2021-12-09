@@ -20,25 +20,23 @@ html(lang="en")
             div(id='container')
                 div(id='box1' class='box')
                 div(id='box2' class='box') 
-                    label(for='username' id='username') Username:
+                    label(for='userUsername' id='username') Username:
                     br
-                    p(id='username') #{user.username}
+                    p(id='userUsername') #{user.username}
                     br
                     br
-                    label(for='email' id='email') Email:
+                    label(for='userEmail' id='email') Email:
                     br 
-                    p(id='email') #{user.email}
+                    p(id='userEmail') #{user.email}
                     br
                     br
-                    label(for='phone' id='phone') Phone: 
+                    label(for='userPhone' id='phone') Phone: 
                     br
-                    p(id='phone') #{user.phone}
-                    br
-                    br
-                    button(id='changePassword', onclick='changeVisibility()') Change Password
+                    p(id='userPhone') #{user.phone}
                     br
                     br
-                div(id='box3', class='box')
+                a(href="#box3") Change Password
+                div(id='box3', class='passwordDiv')
                     label(for='password' id='password') Password: 
                     br
                     input(type='password' id='password')

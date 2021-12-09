@@ -75,11 +75,14 @@ fieldset {
 #username{
     max-width: 200px;
     align-self: center;
+    text-decoration: underline;
 }
 
 #email{
     max-width: 200px;
     align-self: center;
+    text-align: center;
+    text-decoration: underline;
 }
 
 #phoneNumber{
@@ -90,11 +93,7 @@ fieldset {
 #phone{
     max-width: 200px;
     align-self: center;
-}
-
-#changePassword{
-    align-self: center;
-    display: none;
+    text-decoration: underline;
 }
 
 #container{
@@ -108,12 +107,27 @@ fieldset {
 
 #box3{
     text-align: center;
+    display: none;
+}
+
+#changePassword{
+    align-self: center;
 }
 
 #changePassword:hover{
     background-color: lightgreen;
 }
 
+#changePassword:checked .passwordDiv{
+    visibility: visible;
+    opacity: 1;
+}
+
+#box3:target{
+    display: block;
+}
+
 #password{
     text-align: center;
+    text-decoration: underline;
 }
