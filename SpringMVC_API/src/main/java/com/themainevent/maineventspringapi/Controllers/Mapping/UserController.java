@@ -11,7 +11,7 @@ import java.nio.file.Path;
 
 @RestController
 @RequestMapping(path="/user")
-@CrossOrigin(origins = "https://themainevent.ngrok.io")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
     @Autowired
     private BLLUser bllUser;

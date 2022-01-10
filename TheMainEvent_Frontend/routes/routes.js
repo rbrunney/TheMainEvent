@@ -58,7 +58,7 @@ exports.updateAccount = (req, res) => {
     console.log(user.password);
     console.log(req.session.user.customerID);
     const request = new XMLHttpRequest();
-    request.open("PATCH", `https://mainevent-api.ngrok.io/user/edit/${req.session.user.customerID}`);
+    request.open("PATCH", `http://localhost:8082/user/edit/${req.session.user.customerID}`);
     console.log(JSON.stringify(user));
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.send(JSON.stringify(user));
@@ -86,7 +86,7 @@ exports.createAccount = (req, res) => {
 // That way we can then allow them to log into the site
 exports.checkAccount = (req, res) => {
     const request = new XMLHttpRequest();
-    request.open("GET", `https://mainevent-api.ngrok.io/user/checkUser/${req.body.username}`);
+    request.open("GET", `http://localhost:8082/user/checkUser/${req.body.username}`);
     request.send();
     request.onload = () => {
         userInfo = JSON.parse(request.responseText)
@@ -127,7 +127,7 @@ exports.addAccount = (req, res) => {
         }
         // Need to call REST API here so we can add their information to the Database
         const request = new XMLHttpRequest();
-        request.open("POST", "https://mainevent-api.ngrok.io/user/add");
+        request.open("POST", "http://localhost:8082/user/add");
         request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         request.send(JSON.stringify(user));
         request.onload = () => {
@@ -135,7 +135,7 @@ exports.addAccount = (req, res) => {
         }
 
         const sendEmail = new XMLHttpRequest();
-        sendEmail.open("GET", "https://mainevent-api.ngrok.io/email/sendEmailConfirmation/" + req.body.email);
+        sendEmail.open("GET", "http://localhost:8082/email/sendEmailConfirmation/" + req.body.email);
         sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         sendEmail.send();
         sendEmail.onload = () => {
@@ -177,12 +177,12 @@ exports.addOrder = (req, res) => {
         if(req.session.user.isAuthenticated){
             orderDetails['customerID'] = req.session.user.customerID
             const request = new XMLHttpRequest();
-            request.open("POST", "https://mainevent-api.ngrok.io/orderDetails/add")
+            request.open("POST", "http://localhost:8082/orderDetails/add")
             request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             request.send(JSON.stringify(orderDetails));
 
             const sendEmail = new XMLHttpRequest();
-            sendEmail.open("POST", "https://mainevent-api.ngrok.io/email/sendOrderPending/" + req.session.user.email);
+            sendEmail.open("POST", "http://localhost:8082/email/sendOrderPending/" + req.session.user.email);
             sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             sendEmail.send(JSON.stringify(orderDetails));
             sendEmail.onload = () => {
@@ -208,12 +208,12 @@ exports.confirmOrder = (req, res) => {
     res.clearCookie('orderInfo');
 
     const request = new XMLHttpRequest();
-    request.open("POST", "https://mainevent-api.ngrok.io/orderDetails/add")
+    request.open("POST", "http://localhost:8082/orderDetails/add")
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.send(JSON.stringify(orderDetails));
 
     const sendEmail = new XMLHttpRequest();
-    sendEmail.open("POST", "https://mainevent-api.ngrok.io/email/sendOrderPending/" + req.session.user.email);
+    sendEmail.open("POST", "http://localhost:8082/email/sendOrderPending/" + req.session.user.email);
     sendEmail.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     sendEmail.send(JSON.stringify(orderDetails));
     sendEmail.onload = () => {

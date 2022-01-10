@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/order")
-@CrossOrigin(origins = "https://themainevent.ngrok.io")
+@CrossOrigin(origins = "http://localhost:3000")
 public class OrderController {
     @Autowired
     private BLLOrder bllOrder;

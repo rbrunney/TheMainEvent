@@ -254,26 +254,26 @@
             alert("You just got accepted!");
             
             const request = new XMLHttpRequest();
-            request.open("GET", 'https://mainevent-api.ngrok.io/user/getUserEmail/' + ev.customerID); // Read All Order Details
+            request.open("GET", 'http://localhost:8082/user/getUserEmail/' + ev.customerID); // Read All Order Details
             request.send();
             request.onload = () => {
               email = request.responseText;
               console.log(email);
               const requestOrderDetails = new XMLHttpRequest();
-                requestOrderDetails.open("GET", 'https://mainevent-api.ngrok.io/orderDetails/getOrderDetailById/' + ev.orderId); // Read Order Detail by id
+                requestOrderDetails.open("GET", 'http://localhost:8082/orderDetails/getOrderDetailById/' + ev.orderId); // Read Order Detail by id
                 requestOrderDetails.send();
                 requestOrderDetails.onload = () => {
                   console.log(email);
                   orderDetails = requestOrderDetails.responseText;
                   const requestOrderConfirmation = new XMLHttpRequest();
-                  requestOrderConfirmation.open("POST", 'https://mainevent-api.ngrok.io/email/sendOrderConfirmation/' + email); // Read Order Confirmation
+                  requestOrderConfirmation.open("POST", 'http://localhost:8082/email/sendOrderConfirmation/' + email); // Read Order Confirmation
                   requestOrderConfirmation.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                   requestOrderConfirmation.send(orderDetails);
                   requestOrderConfirmation.onload = () => {
                     check = JSON.parse(requestOrderDetails.responseText)
                     check.accepted = true;
                     const requestUpdateOrder = new XMLHttpRequest();
-                    requestUpdateOrder.open("PUT", 'https://mainevent-api.ngrok.io/orderDetails/updateOrderDetails'); // Update Order Confirmation
+                    requestUpdateOrder.open("PUT", 'http://localhost:8082/orderDetails/updateOrderDetails'); // Update Order Confirmation
                     requestUpdateOrder.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                     requestUpdateOrder.send(JSON.stringify(check));
                     location.reload();
@@ -285,25 +285,25 @@
           denyButton.onclick = function () {
               alert("Get Canceled lol");
               const request = new XMLHttpRequest();
-              request.open("GET", 'https://mainevent-api.ngrok.io/user/getUserEmail/' + ev.customerID); // Read All Order Details
+              request.open("GET", 'http://localhost:8082/user/getUserEmail/' + ev.customerID); // Read All Order Details
               request.send();
               request.onload = () => {
                 email = request.responseText;
                 console.log(email);
                 const requestOrderDetails = new XMLHttpRequest();
-                  requestOrderDetails.open("GET", 'https://mainevent-api.ngrok.io/orderDetails/getOrderDetailById/' + ev.orderId); // Read Order Detail by id
+                  requestOrderDetails.open("GET", 'http://localhost:8082/orderDetails/getOrderDetailById/' + ev.orderId); // Read Order Detail by id
                   requestOrderDetails.send();
                   requestOrderDetails.onload = () => {
                     orderDetails = requestOrderDetails.responseText;
                     console.log(orderDetails);
                     console.log(email);
                     const requestOrderConfirmation = new XMLHttpRequest();
-                    requestOrderConfirmation.open("GET", 'https://mainevent-api.ngrok.io/email/sendOrderDenied/' + email); // Read Order Confirmation
+                    requestOrderConfirmation.open("GET", 'http://localhost:8082/email/sendOrderDenied/' + email); // Read Order Confirmation
                     requestOrderConfirmation.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                     requestOrderConfirmation.send(orderDetails);
                     requestOrderConfirmation.onload = () => {
                       const requestUpdateOrder = new XMLHttpRequest();
-                      requestUpdateOrder.open("DELETE", 'https://mainevent-api.ngrok.io/orderDetails/deleteOrderDetails'); // Update Order Confirmation
+                      requestUpdateOrder.open("DELETE", 'http://localhost:8082/orderDetails/deleteOrderDetails'); // Update Order Confirmation
                       requestUpdateOrder.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                       requestUpdateOrder.send(orderDetails);
                       location.reload();
@@ -395,7 +395,7 @@
   !function(req, res) {
     var data = [];
     const request = new XMLHttpRequest();
-    request.open("GET", 'https://mainevent-api.ngrok.io/orderDetails/findAll'); // Read All Order Details
+    request.open("GET", 'http://localhost:8082/orderDetails/findAll'); // Read All Order Details
     request.send();
     request.onload = () => {
         var orders = JSON.parse(request.responseText)

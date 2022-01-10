@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping(path="/email")
-@CrossOrigin(origins = "https://themainevent.ngrok.io")
+@CrossOrigin(origins = "http://localhost:3000")
 public class EmailController {
     @Autowired
     private BLLSendEmail bllEmail;
